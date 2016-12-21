@@ -3,7 +3,7 @@
 var path = require('path');
 
 module.exports = {
-	extends: [
-		path.join(__dirname, './environments/browser')
-	].map(require.resolve)
+  extends: [
+    path.join(__dirname, './environments/browser')
+  ].map(require.resolve)
 };

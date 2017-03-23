@@ -81,12 +81,12 @@ module.exports = {
     'yield-star-spacing': [2, 'after'],
 
     // ignores capitalized decorators
-    'babel/new-cap': 2,
+    'babel/new-cap': [2, { newIsCap: true }],
     // doesn't complain about export x from "mod"; or export * as x from "mod";
-    'babel/object-curly-spacing': 2,
+    'babel/object-curly-spacing': [2, 'always'],
     // doesn't fail when inside class properties
     'babel/no-invalid-this': 2,
     // includes class properties
-    'babel/semi': 2
+    'babel/semi': [2, 'always']
   }
 };

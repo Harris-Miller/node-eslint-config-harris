@@ -4,6 +4,7 @@ var path = require('path');
 
 module.exports = {
   extends: [
+  path.join(__dirname, './rules/base'),
     path.join(__dirname, './rules/best-practices'),
     path.join(__dirname, './rules/errors'),
     path.join(__dirname, './rules/style'),

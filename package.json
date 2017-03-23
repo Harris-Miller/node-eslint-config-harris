@@ -24,7 +24,7 @@
   "author": "Harris Miller <harrismiller08@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^3.12.2",
+    "eslint": "^3.17.1",
     "version-bump-prompt": "^2.0.0"
   },
   "peerDependencies": {

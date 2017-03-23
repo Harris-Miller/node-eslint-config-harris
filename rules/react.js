@@ -2,6 +2,7 @@
 
 module.exports = {
   plugins: [
+    'import'
     'react',
     'jsx-a11y'
   ],
@@ -10,6 +11,11 @@ module.exports = {
   },
   ecmaFeatures: {
     jsx: true
+  },
+  settings: {
+    'import/extensions': [
+      '.jsx'
+    ]
   },
   rules: {
     // Specify whether double or single quotes should be used in JSX attributes

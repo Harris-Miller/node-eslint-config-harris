@@ -91,7 +91,7 @@ module.exports = {
     'no-invalid-this': 0,
     'babel/no-invalid-this': 2,
     // includes class properties
-    'semi': 0,
+    semi: 0,
     'babel/semi': [2, 'always']
   }
 };

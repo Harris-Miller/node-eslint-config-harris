@@ -80,13 +80,18 @@ module.exports = {
     // enforce spacing around the * in yield* expressions
     'yield-star-spacing': [2, 'after'],
 
+    // for babel rules, we need to disable the original rules first, as babel "replaces" them with enhanced parcing
     // ignores capitalized decorators
+    'new-cap': 0,
     'babel/new-cap': [2, { newIsCap: true }],
     // doesn't complain about export x from "mod"; or export * as x from "mod";
+    'object-curly-spacing': 2,
     'babel/object-curly-spacing': [2, 'always'],
     // doesn't fail when inside class properties
+    'no-invalid-this': 0,
     'babel/no-invalid-this': 2,
     // includes class properties
+    'semi': 0,
     'babel/semi': [2, 'always']
   }
 };

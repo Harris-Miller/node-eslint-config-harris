@@ -174,6 +174,7 @@ module.exports = {
 
     // Prevent importing the default as if it were named
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
-    'import/no-named-default': 'error'
+    // DISABLED: seems to be currently broken
+    // 'import/no-named-default': 'error'
   }
 };

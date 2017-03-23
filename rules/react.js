@@ -184,7 +184,7 @@ module.exports = {
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     // I don't care what the docs say, 'children' gets ignored, also 'dispatch' because of react-redux
-    'react/prop-types': ['error', { ignore: ['children', 'dipatch'], customValidators: [], skipUndeclared: false }],
+    'react/prop-types': ['error', { ignore: ['children', 'dispatch'], customValidators: [], skipUndeclared: false }],
 
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md

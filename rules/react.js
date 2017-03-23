@@ -1,12 +1,16 @@
 'use strict';
 
 module.exports = {
+  env: {
+    es6: true
+  },
   plugins: [
     'import',
     'react',
     'jsx-a11y'
   ],
   parserOptions: {
+    ecmaVersion: 6,
     jsx: true
   },
   ecmaFeatures: {

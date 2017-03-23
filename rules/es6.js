@@ -5,7 +5,11 @@ module.exports = {
     es6: true
   },
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 6,
+    ecmaFeatures: {
+      generators: true,
+      experimentalObjectRestSpread: true
+    }
   },
   rules: {
     // enforces no braces where they can be omitted

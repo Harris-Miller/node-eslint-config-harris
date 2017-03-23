@@ -27,8 +27,8 @@ module.exports = {
     'no-sync': 0,
 
     // require effective use of strict mode directives
-    // TODO: go over this! node projects should all have 'use strict', however what if we are transpiling?
-    strict: [2, 'global'],
+    // non es6 node applications need 'use strict', if the es6 rule set is used, this will be overwritten
+    strict: [0, 'global'],
 
     // overrides
     // allow use of console for service-side code

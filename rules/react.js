@@ -2,7 +2,7 @@
 
 module.exports = {
   plugins: [
-    'import'
+    'import',
     'react',
     'jsx-a11y'
   ],
@@ -11,11 +11,6 @@ module.exports = {
   },
   ecmaFeatures: {
     jsx: true
-  },
-  settings: {
-    'import/extensions': [
-      '.jsx'
-    ]
   },
   rules: {
     // Specify whether double or single quotes should be used in JSX attributes
@@ -34,8 +29,8 @@ module.exports = {
         'shouldComponentUpdate',
         'componentWillUpdate',
         'componentDidUpdate',
-        'componentWillUnmount',
-      ],
+        'componentWillUnmount'
+      ]
     }],
 
     // Prevent missing displayName in a React component definition
@@ -62,7 +57,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
     'react/jsx-handler-names': ['off', {
       eventHandlerPrefix: 'handle',
-      eventHandlerPropPrefix: 'on',
+      eventHandlerPropPrefix: 'on'
     }],
 
     // Validate props indentation in JSX
@@ -83,7 +78,7 @@ module.exports = {
     'react/jsx-no-bind': ['error', {
       ignoreRefs: true,
       allowArrowFunctions: true,
-      allowBind: false,
+      allowBind: false
     }],
 
     // Prevent duplicate props in JSX
@@ -102,7 +97,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
     'react/jsx-pascal-case': ['error', {
       allowAllCaps: true,
-      ignore: [],
+      ignore: []
     }],
 
     // Enforce propTypes declarations alphabetical sorting
@@ -110,7 +105,7 @@ module.exports = {
     'react/sort-prop-types': ['off', {
       ignoreCase: true,
       callbacksLast: false,
-      requiredFirst: false,
+      requiredFirst: false
     }],
 
     // Deprecated in favor of react/jsx-sort-props
@@ -123,7 +118,7 @@ module.exports = {
       callbacksLast: false,
       shorthandFirst: false,
       shorthandLast: false,
-      noSortAlphabetically: false,
+      noSortAlphabetically: false
     }],
 
     // Prevent React to be incorrectly marked as unused
@@ -218,7 +213,7 @@ module.exports = {
         'everything-else',
         '/^render.+$/',
         'render'
-      ],
+      ]
     }],
 
     // Prevent missing parentheses around multilines JSX
@@ -280,7 +275,7 @@ module.exports = {
     'react/no-unused-prop-types': ['error', {
       customValidators: [
       ],
-      skipShapeProps: true,
+      skipShapeProps: true
     }],
 
     // Require style prop value be an object or var
@@ -313,7 +308,7 @@ module.exports = {
 
     'react/forbid-elements': ['off', {
       forbid: [
-      ],
+      ]
     }],
 
     // Forbids using non-exported propTypes
@@ -413,7 +408,7 @@ module.exports = {
     // prevent distracting elements, like <marquee> and <blink>
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md
     'jsx-a11y/no-distracting-elements': ['error', {
-      elements: ['marquee', 'blink'],
+      elements: ['marquee', 'blink']
     }],
 
     // only allow <th> to have the "scope" attr

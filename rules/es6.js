@@ -30,6 +30,10 @@ module.exports = {
     ]
   },
   rules: {
+    // require effective use of strict mode directives
+    // es6 source type is 'module' and does not need 'use strict'
+    strict: [2, 'global'],
+
     // enforces no braces where they can be omitted
     'arrow-body-style': [0, 'as-needed'],
     // require parens in arrow function arguments
@@ -132,9 +136,9 @@ module.exports = {
         '**/rollup.config.js', // rollup config
         '**/gulpfile.js', // gulp config
         '**/gulpfile.*.js', // gulp config
-        '**/Gruntfile', // grunt config
+        '**/Gruntfile' // grunt config
       ],
-      optionalDependencies: false,
+      optionalDependencies: false
     }],
 
     // Forbid mutable exports
@@ -180,7 +184,7 @@ module.exports = {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
     'import/extensions': ['error', 'always', {
       js: 'never',
-      jsx: 'never',
+      jsx: 'never'
     }],
 
     // Enforce a convention in module import order
@@ -188,7 +192,7 @@ module.exports = {
     // TODO: enable?
     'import/order': ['off', {
       groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      'newlines-between': 'never',
+      'newlines-between': 'never'
     }],
 
     // Require a newline after the last import/require in a group
@@ -218,7 +222,7 @@ module.exports = {
     // prevent importing the submodules of other modules
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md
     'import/no-internal-modules': ['off', {
-      allow: [],
+      allow: []
     }],
 
     // Warn if a module could be mistakenly parsed as a script by a consumer
@@ -239,6 +243,6 @@ module.exports = {
 
     // Prevent importing the default as if it were named
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md
-    'import/no-named-default': 'error',
+    'import/no-named-default': 'error'
   }
 };

@@ -85,7 +85,7 @@ module.exports = {
     'new-cap': 0,
     'babel/new-cap': [2, { newIsCap: true }],
     // doesn't complain about export x from "mod"; or export * as x from "mod";
-    'object-curly-spacing': 2,
+    'object-curly-spacing': 0,
     'babel/object-curly-spacing': [2, 'always'],
     // doesn't fail when inside class properties
     'no-invalid-this': 0,

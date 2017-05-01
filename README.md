@@ -9,19 +9,26 @@ Environment and parser options are only set where noted, please remember set you
 
 ## Recommended Configs
 
+### eslint-config-harris/web-recommended
+
+This export bundles the default, and es6 features together with web globals. Intended for Babel projects to be compiled down to es5 for web
+
+1. `npm install --save-dev eslint-config-harrs`
+2. add `"extends": "eslint-config-harris/web-recommended" to your .eslintrc`
+
 ### eslint-config-harris/node-recommended
 
 This export bundles the default, node, and es6 features together. Recommended for node 6+ applications, where you're not Babel
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris/node-recommended" to your .eslintrc
+2. add `"extends": "eslint-config-harris/node-recommended" to your .eslintrc`
 
 ### eslint-config-harris/react-recommended
 
 This export bundles all the individual configs and is designed for babel-transpiled React applications
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris/react-recommended" to your .eslintrc
+2. add `"extends": "eslint-config-harris/react-recommended" to your .eslintrc`
 
 ## Individual Configs
 
@@ -30,7 +37,7 @@ This export bundles all the individual configs and is designed for babel-transpi
 The default export contains all ESLint rules for ES5.
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris" to your .eslintrc
+2. add `"extends": "eslint-config-harris" to your .eslintrc`
 
 ### eslint-config-harris/browser
 
@@ -38,7 +45,7 @@ Adds Browser support and environmental variables
 This config will add all browser globals, e.g. `window`, `document`, etc., as well as `jQuery` and `$`
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/browser"]` to your .eslintrc
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/browser"]` to your .eslintrc`
 
 ### eslint-config-harris/es6
 
@@ -46,7 +53,7 @@ Lints ES6. Recommended to always be used in conjunction with the default. Includ
 This config will add `es6` to eslint's environments option, and the ecmaVersion to `6` under parserOptions
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/es6"]` to your .eslintrc
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/es6"]` to your .eslintrc`
 
 ### eslint-config-harris/node
 
@@ -54,21 +61,21 @@ Adds Node support and rules for Node specific javascript
 This config will add `node` to eslint's environments option
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/node"]` to your .eslintrc
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/node"]` to your .eslintrc`
 
 ### eslint-config-harris/import
 
 Adds support for es6 modules (import, export). Purposely seperate from es6 because current versions of Node support almost all es6 features except modules
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/import"]` to your .eslintrc
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/import"]` to your .eslintrc`
 
 ### eslint-config-harris/react
 
 Adds support for React and JSX syntax. It does NOT defaultly add es6 features however, that needs to be added separately
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc`
 
 ## Note for use with test frameworks
 

@@ -8,8 +8,8 @@ module.exports = {
 
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
 
   rules: {
@@ -41,7 +41,7 @@ module.exports = {
       img: [],
       object: [],
       area: [],
-      'input[type="image"]': [],
+      'input[type="image"]': []
     }],
 
     // Prevent img alt text from containing redundant words like "image", "picture", or "photo"
@@ -97,7 +97,7 @@ module.exports = {
     // prevent distracting elements, like <marquee> and <blink>
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md
     'jsx-a11y/no-distracting-elements': ['error', {
-      elements: ['marquee', 'blink'],
+      elements: ['marquee', 'blink']
     }],
 
     // only allow <th> to have the "scope" attr
@@ -117,7 +117,7 @@ module.exports = {
         'onMouseUp',
         'onKeyPress',
         'onKeyDown',
-        'onKeyUp',
+        'onKeyUp'
       ]
     }],
 
@@ -130,7 +130,7 @@ module.exports = {
         'onMouseUp',
         'onKeyPress',
         'onKeyDown',
-        'onKeyUp',
+        'onKeyUp'
       ]
     }],
 
@@ -159,13 +159,13 @@ module.exports = {
     'jsx-a11y/media-has-caption': ['error', {
       audio: [],
       video: [],
-      track: [],
+      track: []
     }],
 
     // WAI-ARIA roles should not be used to convert an interactive element to non-interactive
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-interactive-element-to-noninteractive-role.md
     'jsx-a11y/no-interactive-element-to-noninteractive-role': ['error', {
-      tr: ['none', 'presentation'],
+      tr: ['none', 'presentation']
     }],
 
     // WAI-ARIA roles should not be used to convert a non-interactive element to interactive
@@ -175,14 +175,14 @@ module.exports = {
       ol: ['listbox', 'menu', 'menubar', 'radiogroup', 'tablist', 'tree', 'treegrid'],
       li: ['menuitem', 'option', 'row', 'tab', 'treeitem'],
       table: ['grid'],
-      td: ['gridcell'],
+      td: ['gridcell']
     }],
 
     // Tab key navigation should be limited to elements on the page that can be interacted with.
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-tabindex.md
     'jsx-a11y/no-noninteractive-tabindex': ['error', {
       tags: [],
-      roles: ['tabpanel'],
+      roles: ['tabpanel']
     }],
 
     // ensure <a> tags are valid
@@ -190,7 +190,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': ['error', {
       components: ['Link'],
       specialLink: [],
-      aspects: ['noHref', 'invalidHref', 'preferButton'],
-    }],
-  },
+      aspects: ['noHref', 'invalidHref', 'preferButton']
+    }]
+  }
 };

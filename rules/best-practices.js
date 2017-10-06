@@ -3,131 +3,271 @@
 module.exports = {
   rules: {
     // enforces getter/setter pairs in objects
-    'accessor-pairs': 2,
+    'accessor-pairs': 'error',
+
     // enforces return statements in callbacks of array's methods
-    'array-callback-return': 2,
+    'array-callback-return': 'error',
+
     // treat var statements as if they were block scoped
-    'block-scoped-var': 2,
+    'block-scoped-var': 'error',
+
     // specify the maximum cyclomatic complexity allowed in a program
-    complexity: [0, 10],
+    complexity: ['off', 11],
+
+    // enforce that class methods use "this"
+    // OVERRIDE: i completely disagree with this one
+    // http://eslint.org/docs/rules/class-methods-use-this
+    'class-methods-use-this': 'off',
+
     // require return statements to either always or never specify values
     // OVERRIDE: it's common to return an error object to stop code progression
     // even when the block doesn't return anything, this rule is just annoying
-    'consistent-return': 0,
+    'consistent-return': 'off',
+
     // specify curly brace conventions for all control statements
-    curly: [2, 'multi-line'],
+    curly: ['error', 'multi-line'],
+
     // require default case in switch statements
-    'default-case': 2,
+    'default-case': 'error',
+
     // enforces consistent newlines before or after dots
-    'dot-location': 0,
+    'dot-location': ['error', 'property'],
+
     // encourages use of dot notation whenever possible
-    'dot-notation': [0, { allowKeywords: true }], // F2 mixes this too much to have on
+    'dot-notation': ['error', { allowKeywords: true }], // F'error' mixes this too much to have on
+
     // require the use of === and !==
-    eqeqeq: 2,
+    eqeqeq: 'error',
+
     // make sure for-in loops have an if statement
-    'guard-for-in': 2,
+    'guard-for-in': 'error',
+
     // Blacklist certain identifiers to prevent them being used
-    'no-alert': 1,
+    'no-alert': 'error',
+
     // disallow use of arguments.caller or arguments.callee
-    'no-caller': 2,
+    'no-caller': 'error',
+
     // disallow lexical declarations in case/default clauses
-    'no-case-declarations': 2,
+    'no-case-declarations': 'error',
+
     // disallow division operators explicitly at beginning of regular expression
-    'no-div-regex': 0,
+    'no-div-regex': 'off',
+
     // disallow else after a return in an if
-    'no-else-return': 2,
+    'no-else-return': 'error',
+
     // disallow use of empty functions
-    'no-empty-function': 0,
+    'no-empty-function': ['off', {
+      'allow': [
+        'arrowFunctions',
+        'functions',
+        'methods'
+      ]
+    }],
+
     // disallow use of empty destructuring patterns
-    'no-empty-pattern': 2,
+    'no-empty-pattern': 'error',
+
     // disallow comparisons to null without a type-checking operator
-    'no-eq-null': 2,
+    'no-eq-null': 'error',
+
     // disallow use of eval()
-    'no-eval': 2,
+    'no-eval': 'error',
+
     // disallow adding to native types
-    'no-extend-native': 0,
+    'no-extend-native': 'off',
+
     // disallow unnecessary function binding
-    'no-extra-bind': 2,
+    'no-extra-bind': 'error',
+
     // disallow Unnecessary Labels
-    'no-extra-label': 2,
+    'no-extra-label': 'error',
+
     // disallow fallthrough of case statements
-    'no-fallthrough': 2,
+    'no-fallthrough': 'error',
+
     // disallow the use of leading or trailing decimal points in numeric literals
-    'no-floating-decimal': 2,
+    'no-floating-decimal': 'error',
+
+    // disallow reassignments of native objects or read-only globals
+    // http://eslint.org/docs/rules/no-global-assign
+    'no-global-assign': ['error', { exceptions: [] }],
+
     // disallow the type conversions with shorter notations
-    'no-implicit-coercion': 0,
+    'no-implicit-coercion': 'off',
+
     // disallow var and named functions in global scope
-    'no-implicit-globals': 2,
+    'no-implicit-globals': 'error',
+
     // disallow use of eval()-like methods
-    'no-implied-eval': 2,
+    'no-implied-eval': 'error',
+
     // disallow this keywords outside of classes or class-like objects
-    'no-invalid-this': 2,
+    'no-invalid-this': 'error',
+
     // disallow usage of __iterator__ property
-    'no-iterator': 2,
+    'no-iterator': 'error',
+
     // disallow use of labels for anything other then loops and switches
-    'no-labels': [2, { allowLoop: false, allowSwitch: false }],
+    'no-labels': ['error', { allowLoop: false, allowSwitch: false }],
+
     // disallow unnecessary nested blocks
-    'no-lone-blocks': 2,
+    'no-lone-blocks': 'error',
+
     // disallow creation of functions within loops
-    'no-loop-func': 2,
+    'no-loop-func': 'error',
+
     // disallow the use of magic numbers
-    'no-magic-numbers': 0,
+    'no-magic-numbers': ['off', {
+      ignore: [],
+      ignoreArrayIndexes: true,
+      enforceConst: true,
+      detectObjects: false,
+    }],
+
     // disallow use of multiple spaces
-    'no-multi-spaces': 2,
+    'no-multi-spaces': ['error', {
+      ignoreEOLComments: false,
+    }],
+
     // disallow use of multiline strings
-    'no-multi-str': 2,
-    // disallow reassignments of native objects
-    'no-native-reassign': 2,
+    'no-multi-str': 'error',
+
+    // deprecated in favor of no-global-assign
+    'no-native-reassign': 'off',
+
     // disallow use of new operator when not part of the assignment or comparison
-    'no-new': 2,
+    'no-new': 'error',
+
     // disallow use of new operator for Function object
-    'no-new-func': 2,
+    'no-new-func': 'error',
+
     // disallows creating new instances of String, Number, and Boolean
-    'no-new-wrappers': 2,
+    'no-new-wrappers': 'error',
+
     // disallow use of (old style) octal literals
-    'no-octal': 2,
+    'no-octal': 'error',
+
     // disallow use of octal escape sequences in string literals, such as
-    // var foo = 'Copyright \251';
-    'no-octal-escape': 2,
+    // var foo = 'Copyright \'error'51';
+    'no-octal-escape': 'error',
+
     // disallow reassignment of function parameters
-    'no-param-reassign': [0, { props: false }], // if full es6, should be 2, with param defaults
+    'no-param-reassign': ['off', { props: false }], // if full es6, should be 'error', with param defaults
+
     // disallow usage of __proto__ property
-    'no-proto': 2,
+    'no-proto': 'error',
+
     // disallow declaring the same variable more then once
-    'no-redeclare': 2,
+    'no-redeclare': 'error',
+
+    // disallow certain object properties
+    // http://eslint.org/docs/rules/no-restricted-properties
+    'no-restricted-properties': ['error', {
+      object: 'arguments',
+      property: 'callee',
+      message: 'arguments.callee is deprecated',
+    }, {
+      object: 'global',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'self',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'window',
+      property: 'isFinite',
+      message: 'Please use Number.isFinite instead',
+    }, {
+      object: 'global',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
+    }, {
+      object: 'self',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
+    }, {
+      object: 'window',
+      property: 'isNaN',
+      message: 'Please use Number.isNaN instead',
+    }, {
+      property: '__defineGetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }, {
+      property: '__defineSetter__',
+      message: 'Please use Object.defineProperty instead.',
+    }, {
+      object: 'Math',
+      property: 'pow',
+      message: 'Use the exponentiation operator (**) instead.',
+    }],
+
     // allow use of assignment in return statement
-    'no-return-assign': 0,
+    'no-return-assign': 'error',
+
+    // disallow redundant `return await`
+    'no-return-await': 'error',
+
     // disallow use of `javascript:` urls.
-    'no-script-url': 2,
+    'no-script-url': 'error',
+
     // disallow assignments where both sides are exactly the same
-    'no-self-assign': 2,
+    'no-self-assign': 'error',
+
     // disallow comparisons where both sides are exactly the same
-    'no-self-compare': 2,
+    'no-self-compare': 'error',
+
     // disallow use of comma operator
-    'no-sequences': 2,
+    'no-sequences': 'error',
+
     // restrict what can be thrown as an exception
-    'no-throw-literal': 2,
+    'no-throw-literal': 'error',
+
     // disallow unmodified conditions of loops
-    'no-unmodified-loop-condition': 0,
+    'no-unmodified-loop-condition': 'off',
+
     // disallow usage of expressions in statement position
-    'no-unused-expressions': [2, { allowShortCircuit: true, allowTernary: true }],
+    'no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
+
     // disallow unused labels
-    'no-unused-labels': 2,
+    'no-unused-labels': 'error',
+
     // disallow unnecessary .call() and .apply()
-    'no-useless-call': 2, // TODO: legecy should have this be 0
+    'no-useless-call': 'error', // TODO: legecy should have this be 'off'
+
+    // disallow useless string concatenation
+    // http://eslint.org/docs/rules/no-useless-concat
+    'no-useless-concat': 'error',
+
+    // disallow redundant return; keywords
+    // http://eslint.org/docs/rules/no-useless-return
+    'no-useless-return': 'error',
+
     // disallow use of void operator
-    'no-void': 2,
+    'no-void': 'error',
+
     // disallow usage of configurable warning terms in comments: e.g. todo
-    'no-warning-comments': [0, { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
+    'no-warning-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
+
     // disallow use of the with statement
-    'no-with': 2,
+    'no-with': 'error',
+
+    // require using Error objects as Promise rejection reasons
+    // http://eslint.org/docs/rules/prefer-promise-reject-errors
+    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+
     // require use of the second argument for parseInt()
-    radix: 2,
+    radix: 'error',
+
     // requires to declare all vars on top of their containing scope
-    'vars-on-top': 0,
+    'vars-on-top': 'off',
+
     // require immediate function invocation to be wrapped in parentheses
-    'wrap-iife': [2, 'inside'],
+    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
+    
     // require or disallow Yoda conditions
-    yoda: 2
+    yoda: 'error'
   }
 };

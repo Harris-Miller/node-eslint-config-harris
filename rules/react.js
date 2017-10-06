@@ -5,7 +5,6 @@ module.exports = {
     es6: true
   },
   plugins: [
-    'import',
     'react',
     'jsx-a11y'
   ],
@@ -13,8 +12,16 @@ module.exports = {
     ecmaVersion: 6,
     jsx: true
   },
-  ecmaFeatures: {
-    jsx: true
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.json']
+      }
+    },
+    react: {
+      pragma: 'React',
+      version: '15.0'
+    }
   },
   rules: {
     // Specify whether double or single quotes should be used in JSX attributes
@@ -448,17 +455,5 @@ module.exports = {
     // ensure HTML elements do not specify redundant ARIA roles
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
     'jsx-a11y/no-redundant-roles': 'error'
-  },
-
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.json']
-      }
-    },
-    react: {
-      pragma: 'React',
-      version: '0.14'
-    }
-  }
+  }  
 };

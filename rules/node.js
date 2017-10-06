@@ -6,32 +6,42 @@ module.exports = {
   },
   rules: {
     // enforce return after a callback
-    'callback-return': 0,
+    'callback-return': 'off',
+
     // enforce require() on top-level module scope
-    'global-require': 0,
+    'global-require': 'off',
+
     // enforces error handling in callbacks (node environment)
-    'handle-callback-err': [2, '^(err|error)$'],
+    // OVERRIDE: I absolutely want this on!
+    'handle-callback-err': ['error', '^(err|error)$'],
+
     // disallow mixing regular variable and require declarations
-    'no-mixed-requires': [0, false],
+    'no-mixed-requires': ['off', false],
+
     // disallow use of new operator with the require function
-    'no-new-require': 0,
+    'no-new-require': 'off',
+
     // disallow string concatenation with __dirname and __filename
-    'no-path-concat': 2,
+    'no-path-concat': 'error',
+
     // disallow use of process.env
-    'no-process-env': 0,
+    'no-process-env': 'off',
+
     // disallow process.exit()
-    'no-process-exit': 0,
+    'no-process-exit': 'off',
+
     // restrict usage of specified node modules
-    'no-restricted-modules': 0,
+    'no-restricted-modules': 'off',
+
     // disallow use of synchronous methods (off by default)
-    'no-sync': 0,
+    'no-sync': 'off',
 
     // require effective use of strict mode directives
     // non es6 node applications need 'use strict', if the es6 rule set is used, this will be overwritten
-    strict: [0, 'global'],
+    strict: ['off', 'global'],
 
     // overrides
     // allow use of console for service-side code
-    'no-console': 0
+    'no-console': 'off'
   }
 };

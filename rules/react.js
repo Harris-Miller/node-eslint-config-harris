@@ -1,16 +1,13 @@
 'use strict';
 
 module.exports = {
-  env: {
-    es6: true
-  },
   plugins: [
     'react',
-    'jsx-a11y'
   ],
   parserOptions: {
-    ecmaVersion: 6,
-    jsx: true
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   settings: {
     'import/resolver': {
@@ -21,8 +18,15 @@ module.exports = {
     react: {
       pragma: 'React',
       version: '15.0'
-    }
-  },
+    },
+    propWrapperFunctions: [
+      'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
+      'exact', // https://www.npmjs.com/package/prop-types-exact
+      'Object.freeze', // https://tc39.github.io/ecma262/#sec-object.freeze
+    ],
+  }
+  // View link below for react rules documentation
+  // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
     // Specify whether double or single quotes should be used in JSX attributes
     // http://eslint.org/docs/rules/jsx-quotes
@@ -40,8 +44,8 @@ module.exports = {
         'shouldComponentUpdate',
         'componentWillUpdate',
         'componentDidUpdate',
-        'componentWillUnmount'
-      ]
+        'componentWillUnmount',
+      ],
     }],
 
     // Prevent missing displayName in a React component definition
@@ -50,15 +54,19 @@ module.exports = {
 
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': [1, { forbid: ['any', 'array', 'object'] }],
+    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'] }],
 
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
-    'react/jsx-boolean-value': ['error', 'never'],
+    'react/jsx-boolean-value': ['error', 'never', { always: [] }],
 
     // Validate closing bracket location in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md
     'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
+
+    // Validate closing tag location in JSX
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-tag-location.md
+    'react/jsx-closing-tag-location': 'error',
 
     // Enforce or disallow spaces inside of curly braces in JSX attributes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-spacing.md
@@ -68,7 +76,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
     'react/jsx-handler-names': ['off', {
       eventHandlerPrefix: 'handle',
-      eventHandlerPropPrefix: 'on'
+      eventHandlerPropPrefix: 'on',
     }],
 
     // Validate props indentation in JSX
@@ -81,15 +89,14 @@ module.exports = {
 
     // Limit maximum of props on a single line in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    // TODO: enable (semver-minor)
-    'react/jsx-max-props-per-line': ['off', { maximum: 1, when: 'multiline' }],
+    'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
 
     // Prevent usage of .bind() in JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md
     'react/jsx-no-bind': ['error', {
       ignoreRefs: true,
       allowArrowFunctions: true,
-      allowBind: false
+      allowBind: false,
     }],
 
     // Prevent duplicate props in JSX
@@ -98,7 +105,7 @@ module.exports = {
 
     // Prevent usage of unwrapped JSX strings
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
-    'react/jsx-no-literals': 'off',
+    'react/jsx-no-literals': ['off', { noStrings: true }],
 
     // Disallow undeclared variables in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
@@ -108,7 +115,7 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
     'react/jsx-pascal-case': ['error', {
       allowAllCaps: true,
-      ignore: []
+      ignore: [],
     }],
 
     // Enforce propTypes declarations alphabetical sorting
@@ -116,7 +123,7 @@ module.exports = {
     'react/sort-prop-types': ['off', {
       ignoreCase: true,
       callbacksLast: false,
-      requiredFirst: false
+      requiredFirst: false,
     }],
 
     // Deprecated in favor of react/jsx-sort-props
@@ -129,7 +136,8 @@ module.exports = {
       callbacksLast: false,
       shorthandFirst: false,
       shorthandLast: false,
-      noSortAlphabetically: false
+      noSortAlphabetically: false,
+      reservedFirst: true,
     }],
 
     // Prevent React to be incorrectly marked as unused
@@ -150,11 +158,15 @@ module.exports = {
 
     // Prevent usage of setState in componentDidMount
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md
-    'react/no-did-mount-set-state': ['error'],
+    'react/no-did-mount-set-state': 'error',
 
     // Prevent usage of setState in componentDidUpdate
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-update-set-state.md
-    'react/no-did-update-set-state': ['error'],
+    'react/no-did-update-set-state': 'error',
+
+    // Prevent usage of setState in componentWillUpdate
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-will-update-set-state.md
+    'react/no-will-update-set-state': 'error',
 
     // Prevent direct mutation of this.state
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
@@ -186,21 +198,19 @@ module.exports = {
 
     // Require stateless functions when not using lifecycle methods, setState or ref
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
-    'react/prefer-stateless-function': 'error',
+    'react/prefer-stateless-function': ['error', { ignorePureComponents: true }],
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    // I don't care what the docs say, 'children' gets ignored, also 'dispatch' because of react-redux
-    'react/prop-types': ['error', { ignore: ['children', 'dispatch'], customValidators: [], skipUndeclared: false }],
+    'react/prop-types': ['error', {
+      ignore: [],
+      customValidators: [],
+      skipUndeclared: false
+    }],
 
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
     'react/react-in-jsx-scope': 'error',
-
-    // Restrict file extensions that may be required
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-extension.md
-    // deprecated in favor of import/extensions
-    'react/require-extension': ['off', { extensions: ['.jsx', '.js'] }],
 
     // Require render() methods to return something
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
@@ -210,10 +220,6 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     'react/self-closing-comp': 'error',
 
-    // Enforce spaces before the closing bracket of self-closing JSX elements
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
-    'react/jsx-space-before-closing': ['error', 'always'],
-
     // Enforce component methods order
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
     'react/sort-comp': ['error', {
@@ -221,11 +227,13 @@ module.exports = {
         'static-methods',
         'lifecycle',
         '/^on.+$/',
+        'getters',
+        'setters',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
         'everything-else',
         '/^render.+$/',
         'render'
-      ]
+      ],
     }],
 
     // Prevent missing parentheses around multilines JSX
@@ -233,13 +241,13 @@ module.exports = {
     'react/jsx-wrap-multilines': ['error', {
       declaration: true,
       assignment: true,
-      return: true
+      return: true,
+      arrow: true,
     }],
-    'react/wrap-multilines': 'off', // deprecated version
 
     // Require that the first prop in a JSX element be on a new line when the element is multiline
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-first-prop-new-line.md
-    'react/jsx-first-prop-new-line': ['error', 'multiline'],
+    'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
 
     // Enforce spacing around jsx equals signs
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-equals-spacing.md
@@ -260,7 +268,6 @@ module.exports = {
     // prevent accidental JS comments from being injected into JSX as text
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
     'react/jsx-no-comment-textnodes': 'error',
-    'react/no-comment-textnodes': 'off', // deprecated version
 
     // disallow using React.render/ReactDOM.render's return value
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md
@@ -278,6 +285,10 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
     'react/forbid-component-props': ['off', { forbid: [] }],
 
+    // Forbid certain elements
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
+    'react/forbid-elements': ['off', { forbid: [], }],
+
     // Prevent problem with children and props.dangerouslySetInnerHTML
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md
     'react/no-danger-with-children': 'error',
@@ -287,7 +298,7 @@ module.exports = {
     'react/no-unused-prop-types': ['error', {
       customValidators: [
       ],
-      skipShapeProps: true
+      skipShapeProps: true,
     }],
 
     // Require style prop value be an object or var
@@ -310,6 +321,11 @@ module.exports = {
       afterOpening: 'never'
     }],
 
+    // Enforce spaces before the closing bracket of self-closing JSX elements
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md
+    // Deprecated in favor of jsx-tag-spacing
+    'react/jsx-space-before-closing': ['off', 'always'],
+
     // Prevent usage of Array index in keys
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
     'react/no-array-index-key': 'error',
@@ -318,142 +334,39 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
     'react/require-default-props': 'error',
 
-    'react/forbid-elements': ['off', {
-      forbid: [
-      ]
-    }],
-
     // Forbids using non-exported propTypes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
     'react/forbid-foreign-prop-types': 'off',
 
     // Prevent void DOM elements from receiving children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
-    // TODO: enable (semver-minor)
-    'react/void-dom-elements-no-children': 'off',
+    'react/void-dom-elements-no-children': 'error',
 
-    // Enforce that anchors have content
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md
-    'jsx-a11y/anchor-has-content': ['error', { components: [''] }],
+    // Enforce all defaultProps have a corresponding non-required PropType
+    // https://github.com/yannickcr/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/default-props-match-prop-types.md
+    'react/default-props-match-prop-types': ['error', { allowRequiredDefaults: false }],
 
-    // Require ARIA roles to be valid and non-abstract
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
-    'jsx-a11y/aria-role': ['error', { ignoreNonDom: false }],
+    // Prevent usage of shouldComponentUpdate when extending React.PureComponent
+    // https://github.com/yannickcr/eslint-plugin-react/blob/9e13ae2c51e44872b45cc15bf1ac3a72105bdd0e/docs/rules/no-redundant-should-component-update.md
+    'react/no-redundant-should-component-update': 'error',
 
-    // Enforce all aria-* props are valid.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
-    'jsx-a11y/aria-props': 'error',
+    // Prevent unused state values
+    // https://github.com/yannickcr/eslint-plugin-react/pull/1103/
+    'react/no-unused-state': 'error',
 
-    // Enforce ARIA state and property values are valid.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
-    'jsx-a11y/aria-proptypes': 'error',
-
-    // Enforce that elements that do not support ARIA roles, states, and
-    // properties do not have those attributes.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
-    'jsx-a11y/aria-unsupported-elements': 'error',
-
-    // disallow href "#"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/href-no-hash.md
-    'jsx-a11y/href-no-hash': ['error', { components: ['a'] }],
-
-    // Require <img> to have a non-empty `alt` prop, or role="presentation"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-has-alt.md
-    'jsx-a11y/img-has-alt': 'error',
-
-    // Prevent img alt text from containing redundant words like "image", "picture", or "photo"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/img-redundant-alt.md
-    'jsx-a11y/img-redundant-alt': 'error',
-
-    // require that JSX labels use "htmlFor"
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
-    'jsx-a11y/label-has-for': ['error', { components: ['label'] }],
-
-    // require that mouseover/out come with focus/blur, for keyboard-only users
-    // TODO: evaluate
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
-    'jsx-a11y/mouse-events-have-key-events': 'off',
-
-    // Prevent use of `accessKey`
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-access-key.md
-    'jsx-a11y/no-access-key': 'error',
-
-    // require onBlur instead of onChange
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-onchange.md
-    'jsx-a11y/no-onchange': 'off',
-
-    // Enforce that elements with onClick handlers must be focusable.
-    // TODO: evaluate
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/onclick-has-focus.md
-    'jsx-a11y/onclick-has-focus': 'off',
-
-    // require things with onClick to have an aria role
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/onclick-has-role.md
-    'jsx-a11y/onclick-has-role': 'off',
-
-    // Enforce that elements with ARIA roles must have all required attributes
-    // for that role.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
-    'jsx-a11y/role-has-required-aria-props': 'error',
-
-    // Enforce that elements with explicit or implicit roles defined contain
-    // only aria-* properties supported by that role.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
-    'jsx-a11y/role-supports-aria-props': 'error',
-
-    // Enforce tabIndex value is not greater than zero.
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
-    'jsx-a11y/tabindex-no-positive': 'error',
-
-    // ensure <hX> tags have content and are not aria-hidden
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
-    'jsx-a11y/heading-has-content': ['error', { components: [''] }],
-
-    // require HTML elements to have a "lang" prop
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/html-has-lang.md
-    'jsx-a11y/html-has-lang': 'error',
-
-    // require HTML element's lang prop to be valid
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
-    'jsx-a11y/lang': 'error',
-
-    // prevent distracting elements, like <marquee> and <blink>
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md
-    'jsx-a11y/no-distracting-elements': ['error', {
-      elements: ['marquee', 'blink']
+    // Enforces consistent naming for boolean props
+    // https://github.com/yannickcr/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/boolean-prop-naming.md
+    'react/boolean-prop-naming': ['off', {
+      propTypeNames: ['bool', 'mutuallyExclusiveTrueProps'],
+      rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+',
     }],
 
-    // only allow <th> to have the "scope" attr
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
-    'jsx-a11y/scope': 'error',
+    // Prevents common casing typos
+    // https://github.com/yannickcr/eslint-plugin-react/blob/73abadb697034b5ccb514d79fb4689836fe61f91/docs/rules/no-typos.md
+    'react/no-typos': 'error',
 
-    // require onClick be accompanied by onKeyUp/onKeyDown/onKeyPress
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/click-events-have-key-events.md
-    // TODO: enable?
-    'jsx-a11y/click-events-have-key-events': 'off',
-
-    // Enforce that DOM elements without semantic behavior not have interaction handlers
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
-    'jsx-a11y/no-static-element-interactions': 'error',
-
-    // ensure emoji are accessible
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
-    'jsx-a11y/accessible-emoji': 'error',
-
-    // elements with aria-activedescendant must be tabbable
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
-    'jsx-a11y/aria-activedescendant-has-tabindex': 'error',
-
-    // ensure iframe elements have a unique title
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/iframe-has-title.md
-    'jsx-a11y/iframe-has-title': 'error',
-
-    // prohibit autoFocus prop
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-autofocus.md
-    'jsx-a11y/no-autofocus': 'error',
-
-    // ensure HTML elements do not specify redundant ARIA roles
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-redundant-roles.md
-    'jsx-a11y/no-redundant-roles': 'error'
+    // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }]
   }
 };

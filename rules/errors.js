@@ -61,7 +61,7 @@ module.exports = {
       nestedBinaryExpressions: false,
       returnAssign: false,
       ignoreJSX: 'all', // delegate to eslint-plugin-react
-      enforceForArrowConditionals: false,
+      enforceForArrowConditionals: false
     }],
 
     // disallow unnecessary semicolons
@@ -106,7 +106,7 @@ module.exports = {
 
     // ensure JSDoc comments are valid
     'valid-jsdoc': 'off',
-    
+
     // ensure that the results of typeof are compared against a valid string
     'valid-typeof': ['error', { requireStringLiterals: true }]
   }

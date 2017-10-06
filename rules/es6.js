@@ -5,7 +5,7 @@ module.exports = {
     es6: true
   },
   parserOptions: {
-    ecmaVersion: 7,
+    ecmaVersion: 7
   },
   plugins: [
     'babel'
@@ -13,12 +13,12 @@ module.exports = {
   rules: {
     // enforces no braces where they can be omitted
     'arrow-body-style': ['error', 'as-needed', {
-      requireReturnForObjectLiteral: false,
+      requireReturnForObjectLiteral: false
     }],
 
     // require parens in arrow function arguments
     'arrow-parens': ['error', 'as-needed', {
-      'requireForBlockBody': false
+      requireForBlockBody: false
     }],
 
     // require space before/after arrow function's arrow
@@ -71,7 +71,7 @@ module.exports = {
     'no-useless-rename': ['error', {
       ignoreDestructuring: false,
       ignoreImport: false,
-      ignoreExport: false,
+      ignoreExport: false
     }],
 
     // require let or const instead of var
@@ -81,13 +81,13 @@ module.exports = {
     // http://eslint.org/docs/rules/object-shorthand
     'object-shorthand': ['error', 'always', {
       ignoreConstructors: false,
-      avoidQuotes: true,
+      avoidQuotes: true
     }],
 
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': ['error', {
       destructuring: 'any',
-      ignoreReadBeforeAssign: true,
+      ignoreReadBeforeAssign: true
     }],
 
     // Prefer destructuring from arrays and objects
@@ -95,14 +95,14 @@ module.exports = {
     'prefer-destructuring': ['error', {
       VariableDeclarator: {
         array: false,
-        object: true,
+        object: true
       },
       AssignmentExpression: {
         array: true,
-        object: true,
-      },
+        object: true
+      }
     }, {
-      enforceForRenamedProperties: false,
+      enforceForRenamedProperties: false
     }],
 
     // disallow parseInt() in favor of binary, octal, and hexadecimal literals
@@ -133,7 +133,7 @@ module.exports = {
     'sort-imports': ['off', {
       ignoreCase: false,
       ignoreMemberSort: false,
-      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
     }],
 
     // require a Symbol description

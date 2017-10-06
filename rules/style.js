@@ -30,13 +30,13 @@ module.exports = {
       line: {
         ignorePattern: '.*',
         ignoreInlineComments: true,
-        ignoreConsecutiveComments: true,
+        ignoreConsecutiveComments: true
       },
       block: {
         ignorePattern: '.*',
         ignoreInlineComments: true,
-        ignoreConsecutiveComments: true,
-      },
+        ignoreConsecutiveComments: true
+      }
     }],
 
     // disallow or enforce trailing commas
@@ -134,7 +134,7 @@ module.exports = {
     'line-comment-position': ['off', {
       position: 'above',
       ignorePattern: '',
-      applyDefaultIgnorePatterns: true,
+      applyDefaultIgnorePatterns: true
     }],
 
     // disallow mixed 'LF' and 'CRLF' as linebreaks
@@ -149,10 +149,10 @@ module.exports = {
     // specify the maximum length of a line in your program
     'max-len': ['error', 100, 4, {
       ignoreUrls: true,
-      ignoreComments: false,
+      ignoreComments: true,
       ignoreRegExpLiterals: true,
       ignoreStrings: true,
-      ignoreTemplateLiterals: true,
+      ignoreTemplateLiterals: true
     }],
 
     // specify the maximum depth callbacks can be nested
@@ -244,20 +244,20 @@ module.exports = {
       'error',
       {
         selector: 'ForInStatement',
-        message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+        message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.'
       },
       {
         selector: 'ForOfStatement',
-        message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
+        message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.'
       },
       {
         selector: 'LabeledStatement',
-        message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+        message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.'
       },
       {
         selector: 'WithStatement',
-        message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
-      },
+        message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
+      }
     ],
 
     // disallow space between function identifier and application
@@ -269,7 +269,7 @@ module.exports = {
     // disallow trailing whitespace at the end of lines
     'no-trailing-spaces': ['error', {
       skipBlankLines: false,
-      ignoreComments: false,
+      ignoreComments: false
     }],
 
     // disallow dangling underscores in identifiers
@@ -277,7 +277,7 @@ module.exports = {
       allow: [],
       allowAfterThis: false,
       allowAfterSuper: false,
-      enforceInMethodNames: false,
+      enforceInMethodNames: false
     }],
 
     // disallow the use of Boolean literals in conditional expressions
@@ -294,14 +294,14 @@ module.exports = {
     // enforce line breaks between braces
     // http://eslint.org/docs/rules/object-curly-newline
     'object-curly-newline': ['error', {
-      ObjectExpression: { /*minProperties: 4, */multiline: true, consistent: true },
-      ObjectPattern: { /*minProperties: 4, */multiline: true, consistent: true }
+      ObjectExpression: { /* minProperties: 4, */multiline: true, consistent: true },
+      ObjectPattern: { /* minProperties: 4, */multiline: true, consistent: true }
     }],
 
     // enforce "same line" or "multiple line" on object properties.
     // http://eslint.org/docs/rules/object-property-newline
     'object-property-newline': ['off', {
-      allowMultiplePropertiesPerLine: true,
+      allowMultiplePropertiesPerLine: true
     }],
 
     // allow just one var statement per function
@@ -327,7 +327,7 @@ module.exports = {
     'quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
 
     // specify whether double or single quotes should be used
-    quotes: ['error', 'single', { 'avoid-escape': true }],
+    quotes: ['error', 'single', { avoidEscape: true }],
 
     // do not require jsdoc
     // http://eslint.org/docs/rules/require-jsdoc
@@ -371,7 +371,7 @@ module.exports = {
       words: true,
       nonwords: false,
       overrides: {
-      },
+      }
     }],
 
     // require or disallow a space immediately following the // or /* in a comment
@@ -379,12 +379,12 @@ module.exports = {
     'spaced-comment': ['error', 'always', {
       line: {
         exceptions: ['-', '+'],
-        markers: ['=', '!'], // space here to support sprockets directives
+        markers: ['=', '!'] // space here to support sprockets directives
       },
       block: {
         exceptions: ['-', '+'],
         markers: ['=', '!'], // space here to support sprockets directives
-        balanced: true,
+        balanced: true
       }
     }],
 

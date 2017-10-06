@@ -111,10 +111,6 @@ module.exports = {
       ignoredNodes: ['JSXElement', 'JSXElement *']
     }],
 
-    // specify whether double or single quotes should be used in JSX attributes
-    // http://eslint.org/docs/rules/jsx-quotes
-    'jsx-quotes': ['error', 'prefer-double'],
-
     // enforces spacing between keys and values in object literal properties
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
 

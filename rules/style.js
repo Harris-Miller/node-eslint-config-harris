@@ -143,7 +143,8 @@ module.exports = {
     'max-depth': ['warn', 4],
 
     // specify the maximum length of a line in your program
-    'max-len': ['error', 100, 4, {
+    // OVERRIDE: until there is an ignore for JSX html syntax, this one is going off
+    'max-len': ['off', 100, 4, {
       ignoreUrls: true,
       ignoreComments: true,
       ignoreRegExpLiterals: true,

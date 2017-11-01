@@ -21,7 +21,7 @@
     "styleguide",
     "harris"
   ],
-  "author": "Harris Miller <harrismiller08@gmail.com>",
+  "author": "Harris Miller <harrismillerconsulting@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.0.1",

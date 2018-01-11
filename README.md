@@ -13,7 +13,7 @@ Environment and parser options are only set where noted, please remember set you
 
 This export bundles the default, and es6 features together with web globals. Intended for Babel projects to be compiled down to es5 for web
 
-1. `npm install --save-dev eslint-config-harrs`
+1. `npm install --save-dev eslint-config-harris`
 2. add `"extends": "eslint-config-harris/web-recommended" to your .eslintrc`
 
 ### eslint-config-harris/node-recommended

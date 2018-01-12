@@ -270,7 +270,7 @@ module.exports = {
     }],
 
     // disallow dangling underscores in identifiers
-    'no-underscore-dangle': ['off', {
+    'no-underscore-dangle': ['error', {
       allow: [],
       allowAfterThis: true,
       allowAfterSuper: true,

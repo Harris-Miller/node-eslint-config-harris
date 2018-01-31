@@ -77,9 +77,16 @@ Adds support for React and JSX syntax. It does NOT defaultly add es6 features ho
 1. `npm install --save-dev eslint-config-harris`
 2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc`
 
-## Note for use with test frameworks
+## Using with test frameworks
 
-First, put a separate .eslintrc.json file in your tests folder with
+### eslint-config-harris/test-modifications
+
+Modifies certain rules (more specifically, turns off certain rules) that make sense in a testing environment versus your source code. This config file does not include environments for any specific test framework, that is left upto the individual user
+
+1. `npm install --save-dev eslint-config-harrs`
+2. add `"extends": ["eslint-config-harris", "eslint-config-harris/test-modifications"] to your .eslintrc in your test folder`
+
+For your specific test framwork, in your test/.eslintrc file add
 ```
 {
 	"env": {
@@ -87,7 +94,6 @@ First, put a separate .eslintrc.json file in your tests folder with
 	}
 }
 ```
-This will turn on mocha global variables (`describe`, `it`, etc..). ESLint also has an `env` setting for jasmine, qunit, and a few others. See their website for more in.
+This will turn on mocha global variables (`describe`, `it`, etc..). ESLint also has an `env` setting for jasmine, qunit, and a few others. See their website for more in. You'll probably need to add some globals as well.
 
-Specifically for Chai, if you are using their should/expect API, you would typically write an assertion like so: `expect(foo).to.be.true`. Doing so will get your the ESLint error `no-unsed-expressions`. You will be tempted to turn this rule off, I suggest you don't. Instead, look into using [dirty-chai](https://github.com/prodatakey/dirty-chai). It's an npm that allows you to write the same assertion as `expect(foo).to.be.true()`. The reason being, that it is easy to get a false positive assertion if you mis-spell the final key, eg `expect(foo).to.be.tue`. `.tue` would just be undefined, and thus regardless if `foo` is true or not, nothing would happen. By evaluating it via `()` you will catch this up front. This is literally why the rule `no-unsed-expressions` exists, and why it should stay active in your test files
-
+Specifically for Chai, if you are using their should/expect API, you would typically write an assertion like so: `expect(foo).to.be.true`. Doing so will get you the ESLint error `no-unsed-expressions`. You will be tempted to turn this rule off, I suggest you don't. Instead, look into using [dirty-chai](https://github.com/prodatakey/dirty-chai). It's an npm that allows you to write the same assertion as `expect(foo).to.be.true()`. The reason being, that it is easy to get a false positive assertion if you mis-spell the final key, eg `expect(foo).to.be.tue`. `.tue` would just be undefined, and thus regardless if `foo` is true or not, nothing would happen. By evaluating it via `()` you will catch this up front. This is literally why the rule `no-unsed-expressions` exists, and why it should stay active in your test files

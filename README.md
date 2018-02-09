@@ -77,6 +77,10 @@ Adds support for React and JSX syntax. It does NOT defaultly add es6 features ho
 1. `npm install --save-dev eslint-config-harris`
 2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc`
 
+## no-console
+
+Allowing or denying no-console is debated fiercly. With the exception of specific circumstances, I don't think console.logs should be used in the final code of any web app. For a node app however, it completely depends on what you're building. Obviously, you might want to console.log for, well, logging purpposes for say a web server to watch while developing. And you'd obviously want to use it if you're writing a CLI program. For this set of lint rules, I've choosen the lowest comment denomiator and am keeping no-console as a 'warning'. I think it's best to override it for use on a case-by-case basis and will leave it up to the user to decide. By default however, no-console is turned off in the test-modifications rule set, as described below.
+
 ## Using with test frameworks
 
 ### eslint-config-harris/test-modifications

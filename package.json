@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-harris",
-  "version": "1.0.0-rc.9",
+  "version": "1.0.0",
   "description": "Harris' ESLint config",
   "main": "index.js",
   "repository": {

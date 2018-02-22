@@ -11,7 +11,7 @@
     "bump": "npm run lint && npm run test && bump --prompt --commit --tag",
     "bump:rc": "npm run bump -- --preid=rc",
     "lint": "eslint **/*.js --ignore-pattern=tests",
-    "test": "eslint tests/**/*.js"
+    "test": "eslint tests/**/*.js tests/**/*.jsx"
   },
   "keywords": [
     "eslint",
@@ -30,6 +30,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "react": "^16.2.0",
     "version-bump-prompt": "^3.1.2"
   },
   "peerDependencies": {

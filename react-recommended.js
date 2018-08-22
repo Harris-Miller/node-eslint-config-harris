@@ -13,7 +13,6 @@ module.exports = {
     path.join(__dirname, './rules/node'),
     path.join(__dirname, './rules/es6'),
     path.join(__dirname, './rules/import'),
-    path.join(__dirname, './rules/react'),
-    path.join(__dirname, './rules/react-a11y')
+    path.join(__dirname, './rules/react')
   ].map(require.resolve)
 };

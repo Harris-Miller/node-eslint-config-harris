@@ -5,7 +5,7 @@ module.exports = {
     'filenames' // https://github.com/selaux/eslint-plugin-filenames
   ],
   rules: {
-    'filenames/match-regex': ['error', '^[a-z\-]+$'], // kebab-case
+    'filenames/match-regex': ['error', '^[a-z\-\.]+$'], // kebab-case, multi .'s allowed, eg file.config.js
     'filenames/match-exported': 'off',
     'filenames/no-index': 'off'
   }

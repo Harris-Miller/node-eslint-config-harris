@@ -133,8 +133,8 @@ module.exports = {
       applyDefaultIgnorePatterns: true
     }],
 
-    // disallow mixed 'LF' and 'CRLF' as linebreaks
-    'linebreak-style': ['error', 'unix'],
+    // linebreak-style off, as git w/ autocrlf with auto correct this for us always
+    'linebreak-style': ['off'],
 
     // enforces empty lines around comments
     'lines-around-comment': 'off',

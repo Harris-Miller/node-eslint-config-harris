@@ -1,12 +1,6 @@
 'use strict';
 
 module.exports = {
-  env: {
-    es6: true
-  },
-  parserOptions: {
-    ecmaVersion: 7
-  },
   plugins: [
     'babel'
   ],

@@ -9,7 +9,7 @@ module.exports = {
     path.join(__dirname, './rules/errors'),
     path.join(__dirname, './rules/style'),
     path.join(__dirname, './rules/variables'),
-    path.join(__dirname, './browser'),
+    path.join(__dirname, './environments/browser'),
     path.join(__dirname, './es6')
   ].map(require.resolve)
 };

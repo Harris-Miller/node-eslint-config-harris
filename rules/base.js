@@ -1,5 +1,11 @@
 'use strict';
 
 module.exports = {
-  parser: 'babel-eslint'
+  env: {
+    es6: true
+  },
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 9
+  }
 };

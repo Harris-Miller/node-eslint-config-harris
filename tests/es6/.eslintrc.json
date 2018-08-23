@@ -1,4 +1,4 @@
 {
   "root": true,
-	"extends": "../../es6.js"
+	"extends": ["../../index.js", "../../es6.js"]
 }

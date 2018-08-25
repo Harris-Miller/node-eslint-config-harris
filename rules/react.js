@@ -182,7 +182,13 @@ module.exports = {
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     'react/prop-types': ['error', {
-      ignore: [],
+      ignore: [
+        'children', // react
+        'dispatch', // react-redux
+        'match', // react-router
+        'location',
+        'history'
+      ],
       customValidators: [],
       skipUndeclared: false
     }],
@@ -204,11 +210,11 @@ module.exports = {
     'react/sort-comp': ['error', {
       order: [
         'static-methods',
-        'lifecycle',
-        '/^on.+$/',
         'getters',
         'setters',
+        'lifecycle',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
+        '/^on.+$/',
         'everything-else',
         '/^render.+$/',
         'render'

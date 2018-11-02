@@ -183,7 +183,8 @@ module.exports = {
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
     'react/prop-types': ['error', {
       ignore: [
-        'children', // react
+        'className', // react
+        'children',
         'dispatch', // react-redux
         'match', // react-router
         'location',

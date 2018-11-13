@@ -34,7 +34,7 @@ module.exports = {
 
     // ensure focus in managed within a composite widget
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-activedescendant-has-tabindex.md
-    'aria-activedescendant-has-tabindex': 'error',
+    'jsx-a11y/aria-activedescendant-has-tabindex': 'error',
 
     // Enforce all aria-* props are valid.
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md

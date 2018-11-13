@@ -77,6 +77,13 @@ Adds support for React and JSX syntax. It does NOT defaultly add es6 features ho
 1. `npm install --save-dev eslint-config-harris`
 2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc`
 
+### eslint-config-harris/react-a11y
+
+Adds support for linting a11y rules on JSX elements
+
+1. `npm install --save-dev eslint-config-harris`
+2. add `"extends: "["eslint-config-harris", "eslint-config-harris/react-a11y"]`
+
 ### eslint-config-harris/filenames
 
 Adds support for linting the filenames and the name of the variables exported by the file

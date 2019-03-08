@@ -79,9 +79,6 @@ module.exports = {
     // disallow irregular whitespace outside of strings and comments
     'no-irregular-whitespace': 'error',
 
-    // disallow negation of the left operand of an in expression
-    'no-negated-in-lhs': 'error',
-
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
 
@@ -103,9 +100,6 @@ module.exports = {
 
     // disallow comparisons with the value NaN
     'use-isnan': 'error',
-
-    // ensure JSDoc comments are valid
-    'valid-jsdoc': 'off',
 
     // ensure that the results of typeof are compared against a valid string
     'valid-typeof': ['error', { requireStringLiterals: true }]

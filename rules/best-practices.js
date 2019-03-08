@@ -134,9 +134,6 @@ module.exports = {
     // disallow use of multiline strings
     'no-multi-str': 'error',
 
-    // deprecated in favor of no-global-assign
-    'no-native-reassign': 'off',
-
     // disallow use of new operator when not part of the assignment or comparison
     'no-new': 'error',
 

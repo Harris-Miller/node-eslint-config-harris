@@ -176,12 +176,6 @@ module.exports = {
     // disallow the omission of parentheses when invoking a constructor with no arguments
     'new-parens': 'error',
 
-    // allow/disallow an empty newline after var statement
-    'newline-after-var': 'off',
-
-    // http://eslint.org/docs/rules/newline-before-return
-    'newline-before-return': 'off',
-
     // enforce newline after each call when chaining the calls
     'newline-per-chained-call': ['off', { ignoreChainWithDepth: 3 }],
 
@@ -257,9 +251,6 @@ module.exports = {
       }
     ],
 
-    // disallow space between function identifier and application
-    'no-spaced-func': 'error',
-
     // disallow the use of ternary operators
     'no-ternary': 'off',
 
@@ -325,10 +316,6 @@ module.exports = {
 
     // specify whether double or single quotes should be used
     quotes: ['error', 'single', { avoidEscape: true }],
-
-    // do not require jsdoc
-    // http://eslint.org/docs/rules/require-jsdoc
-    'require-jsdoc': 'off',
 
     // require or disallow use of semicolons instead of ASI
     semi: ['error', 'always'],

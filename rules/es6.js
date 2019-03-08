@@ -103,9 +103,6 @@ module.exports = {
     // http://eslint.org/docs/rules/prefer-numeric-literals
     'prefer-numeric-literals': 'error',
 
-    // suggest using Reflect methods where applicable
-    'prefer-reflect': 'off', // bad for transpilers
-
     // use rest parameters instead of arguments
     'prefer-rest-params': 'error',
 

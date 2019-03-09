@@ -37,15 +37,10 @@ module.exports = {
     'no-dupe-class-members': 'error',
 
     // disallow importing from the same path more than once
-    // http://eslint.org/docs/rules/no-duplicate-imports
-    // replaced by https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-duplicates.md
-    'no-duplicate-imports': 'off',
+    'no-duplicate-imports': ['error', { "includeExports": true }],
 
     // disallow symbol constructor
     'no-new-symbol': 'error',
-
-    // disallow specific globals
-    'no-restricted-globals': 'off',
 
     // disallow specific imports
     'no-restricted-imports': 'off',
@@ -134,26 +129,6 @@ module.exports = {
     // enforce usage of spacing in template strings
     'template-curly-spacing': 'error',
     // enforce spacing around the * in yield* expressions
-    'yield-star-spacing': ['error', 'after'],
-
-    //
-    // for babel rules, we need to disable the original rules first, as babel "replaces" them with enhanced parcing
-    //
-
-    // ignores capitalized decorators
-    'new-cap': 'off',
-    'babel/new-cap': ['error', { newIsCap: true }],
-
-    // doesn't complain about export x from "mod"; or export * as x from "mod";
-    'object-curly-spacing': 'off',
-    'babel/object-curly-spacing': ['error', 'always'],
-
-    // doesn't fail when inside class properties
-    'no-invalid-this': 'off',
-    'babel/no-invalid-this': 'error',
-
-    // includes class properties
-    semi: 'off',
-    'babel/semi': ['error', 'always']
+    'yield-star-spacing': ['error', 'after']
   }
 };

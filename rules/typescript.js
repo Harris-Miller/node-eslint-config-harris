@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint/ban-ts-ignore': 'error',
 
     // Enforce camelCase naming convention
+    'camelcase': 'off', // MUST DISABLE BASE RULE FIRST!
     '@typescript-eslint/camelcase': 'error',
 
     // Require PascalCased class and interface names (class-name from TSLint)

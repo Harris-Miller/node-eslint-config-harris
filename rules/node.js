@@ -15,6 +15,9 @@ module.exports = {
     // OVERRIDE: I absolutely want this on!
     'handle-callback-err': ['error', '^(err|error)$'],
 
+    // disallow use of the Buffer() constructor
+    'no-buffer-constructor': 'error',
+
     // disallow mixing regular variable and require declarations
     'no-mixed-requires': ['off', false],
 
@@ -34,10 +37,6 @@ module.exports = {
     'no-restricted-modules': 'off',
 
     // disallow use of synchronous methods (off by default)
-    'no-sync': 'off',
-
-    // require effective use of strict mode directives
-    // non es6 node applications need 'use strict', if the es6 rule set is used, this will be overwritten
-    strict: ['off', 'global']
+    'no-sync': 'off'
   }
 };

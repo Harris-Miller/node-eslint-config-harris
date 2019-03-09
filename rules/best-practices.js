@@ -11,21 +11,19 @@ module.exports = {
     // treat var statements as if they were block scoped
     'block-scoped-var': 'error',
 
+    // enforce that class methods use "this"
+    'class-methods-use-this': 'off',
+
     // specify the maximum cyclomatic complexity allowed in a program
     complexity: ['off', 11],
 
-    // enforce that class methods use "this"
-    // OVERRIDE: i completely disagree with this one
-    // http://eslint.org/docs/rules/class-methods-use-this
-    'class-methods-use-this': 'off',
-
     // require return statements to either always or never specify values
-    // OVERRIDE: it's common to return an error object to stop code progression
+    // it's common to return an error object to stop code progression
     // even when the block doesn't return anything, this rule is just annoying
     'consistent-return': 'off',
 
     // specify curly brace conventions for all control statements
-    curly: ['error', 'multi-line'],
+    curly: ['error', 'all'],
 
     // require default case in switch statements
     'default-case': 'error',
@@ -58,7 +56,7 @@ module.exports = {
     'no-else-return': 'error',
 
     // disallow use of empty functions
-    'no-empty-function': ['off', {
+    'no-empty-function': ['warning', {
       allow: [
         'arrowFunctions',
         'functions',
@@ -91,7 +89,6 @@ module.exports = {
     'no-floating-decimal': 'error',
 
     // disallow reassignments of native objects or read-only globals
-    // http://eslint.org/docs/rules/no-global-assign
     'no-global-assign': ['error', { exceptions: [] }],
 
     // disallow the type conversions with shorter notations
@@ -104,7 +101,8 @@ module.exports = {
     'no-implied-eval': 'error',
 
     // disallow this keywords outside of classes or class-like objects
-    'no-invalid-this': 'error',
+    'no-invalid-this': 'off',
+    'babel/no-invalid-this': 'error',
 
     // disallow usage of __iterator__ property
     'no-iterator': 'error',
@@ -151,7 +149,8 @@ module.exports = {
     'no-octal-escape': 'error',
 
     // disallow reassignment of function parameters
-    'no-param-reassign': ['off', { props: false }], // if full es6, should be 'error', with param defaults
+    // function params should generally be treated as immutable. however, may frameworks expect you to change props on params (thing req and res for express)
+    'no-param-reassign': ['error', { props: false }],
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -226,20 +225,22 @@ module.exports = {
     'no-unmodified-loop-condition': 'off',
 
     // disallow usage of expressions in statement position
-    'no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
+    'no-unused-expressions': 'off',
+    'babel/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
 
     // disallow unused labels
     'no-unused-labels': 'error',
 
     // disallow unnecessary .call() and .apply()
-    'no-useless-call': 'error', // TODO: legecy should have this be 'off'
+    'no-useless-call': 'error',
+
+    // disallow unnecessary catch clauses
+    'no-useless-catch': 'error',
 
     // disallow useless string concatenation
-    // http://eslint.org/docs/rules/no-useless-concat
     'no-useless-concat': 'error',
 
     // disallow redundant return; keywords
-    // http://eslint.org/docs/rules/no-useless-return
     'no-useless-return': 'error',
 
     // disallow use of void operator
@@ -251,12 +252,22 @@ module.exports = {
     // disallow use of the with statement
     'no-with': 'error',
 
+    // enforce using named capture group in regular expression
+    // to new of a feature, not worth the headache of turning on
+    'prefer-named-capture-group': 'off',
+
     // require using Error objects as Promise rejection reasons
-    // http://eslint.org/docs/rules/prefer-promise-reject-errors
     'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
 
     // require use of the second argument for parseInt()
     radix: 'error',
+
+    // disallow async functions which have no await expression
+    // should be off, async should be used on something that will return a funtion returning a promise that you wouldn't want to 'await' on
+    'require-await': 'off',
+
+    // enforce the use of u flag on RegExp
+    'require-unicode-regexp': 'off',
 
     // requires to declare all vars on top of their containing scope
     'vars-on-top': 'off',
@@ -265,6 +276,10 @@ module.exports = {
     'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
-    yoda: 'error'
+    yoda: 'error',
+
+    // require effective use of strict mode directives
+    // when using 'import', this will be overwritten as they aren't needed with es6module files
+    strict: ['error', 'global']
   }
 };

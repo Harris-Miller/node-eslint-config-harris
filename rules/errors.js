@@ -3,25 +3,25 @@
 module.exports = {
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
-    // http://eslint.org/docs/rules/for-direction
     'for-direction': 'error',
 
     // Enforces that a return statement is present in property getters
-    // http://eslint.org/docs/rules/getter-return
     'getter-return': ['error', { allowImplicit: true }],
 
+    // disallow using an async function as a Promise executor
+    'no-async-promise-executor': 'error',
+
     // Disallow await inside of loops
-    // http://eslint.org/docs/rules/no-await-in-loop
     'no-await-in-loop': 'error',
 
     // Disallow comparisons to negative zero
-    // http://eslint.org/docs/rules/no-compare-neg-zero
     'no-compare-neg-zero': 'error',
 
     // disallow assignment in conditional expressions
     'no-cond-assign': ['error', 'always'],
 
     // disallow use of console
+    // this should really be used case by case, so I'm defaulting it to warn to encourage it being always set per eslintrc file
     'no-console': 'warn',
 
     // disallow use of constant expressions in conditions
@@ -55,7 +55,6 @@ module.exports = {
     'no-extra-boolean-cast': 'error',
 
     // disallow unnecessary parentheses
-    // http://eslint.org/docs/rules/no-extra-parens
     'no-extra-parens': ['off', 'all', {
       conditionalAssign: true,
       nestedBinaryExpressions: false,
@@ -79,11 +78,13 @@ module.exports = {
     // disallow irregular whitespace outside of strings and comments
     'no-irregular-whitespace': 'error',
 
+    // disallow characters which are made with multiple code points in character class syntax
+    'no-misleading-character-class': 'error',
+
     // disallow the use of object properties of the global object (Math and JSON) as functions
     'no-obj-calls': 'error',
 
     // disallow use of Object.prototypes builtins directly
-    // http://eslint.org/docs/rules/no-prototype-builtins
     'no-prototype-builtins': 'error',
 
     // disallow multiple spaces in a regular expression literal
@@ -92,16 +93,29 @@ module.exports = {
     // disallow sparse arrays
     'no-sparse-arrays': 'error',
 
+    // disallow template literal placeholder syntax in regular strings
+    'no-template-curly-in-string': 'error',
+
     // Avoid code that looks like two expressions but is actually one
     'no-unexpected-multiline': 'error',
 
     // disallow unreachable statements after a return, throw, continue, or break statement
     'no-unreachable': 'error',
 
+    // disallow control flow statements in finally blocks
+    'no-unsafe-finally': 'warning',
+
+    // disallow negating the left operand of relational operators
+    'no-unsafe-negation': 'error',
+
+    // disallow assignments that can lead to race conditions due to usage of await or yield
+    'require-atomic-updates': 'error',
+
     // disallow comparisons with the value NaN
     'use-isnan': 'error',
 
     // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': ['error', { requireStringLiterals: true }]
+    'valid-typeof': 'off',
+    'babel/valid-typeof': ['error', { requireStringLiterals: true }]
   }
 };

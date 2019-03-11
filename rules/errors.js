@@ -103,7 +103,7 @@ module.exports = {
     'no-unreachable': 'error',
 
     // disallow control flow statements in finally blocks
-    'no-unsafe-finally': 'warning',
+    'no-unsafe-finally': 'warn',
 
     // disallow negating the left operand of relational operators
     'no-unsafe-negation': 'error',

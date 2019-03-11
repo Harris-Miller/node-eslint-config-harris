@@ -37,7 +37,7 @@ module.exports = {
     'no-dupe-class-members': 'error',
 
     // disallow importing from the same path more than once
-    'no-duplicate-imports': ['error', { "includeExports": true }],
+    'no-duplicate-imports': ['error', { includeExports: true }],
 
     // disallow symbol constructor
     'no-new-symbol': 'error',

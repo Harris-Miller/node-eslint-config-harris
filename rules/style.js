@@ -3,13 +3,13 @@
 module.exports = {
   rules: {
     // enforce line breaks after opening and before closing array brackets
-    'array-bracket-newline': ['error', { multiline: true }],
+    'array-bracket-newline': ['off', { multiline: true }],
 
     // enforce spacing inside array brackets
     'array-bracket-spacing': ['error', 'never'],
 
     // enforce line breaks between array elements
-    'array-element-newline': ['error', { multiline: true }],
+    'array-element-newline': ['off', { multiline: true }],
 
     // disallow or enforce spaces inside of single line blocks
     'block-spacing': ['error', 'always'],
@@ -18,7 +18,7 @@ module.exports = {
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
     // require camel case names
-    'camelcase': 'off',
+    camelcase: 'off',
     'babel/camelcase': 'error',
 
     // enforce or disallow capitalization of the first letter of a comment
@@ -333,7 +333,7 @@ module.exports = {
 
     // require or disallow use of semicolons instead of ASI
     semi: 'off',
-    'babel/semi': ['error', 'always']
+    'babel/semi': ['error', 'always'],
 
     // enforce spacing before and after semicolons
     'semi-spacing': ['error', { before: false, after: true }],

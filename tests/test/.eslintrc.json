@@ -1,3 +1,0 @@
-{
-  "extends": ["../../index.js" ,"../../es6.js", "../../node.js", "../../test-modifications.js"]
-}

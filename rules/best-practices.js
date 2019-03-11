@@ -56,7 +56,7 @@ module.exports = {
     'no-else-return': 'error',
 
     // disallow use of empty functions
-    'no-empty-function': ['warning', {
+    'no-empty-function': ['warn', {
       allow: [
         'arrowFunctions',
         'functions',
@@ -280,6 +280,6 @@ module.exports = {
 
     // require effective use of strict mode directives
     // when using 'import', this will be overwritten as they aren't needed with es6module files
-    strict: ['error', 'global']
+    strict: ['off', 'global']
   }
 };

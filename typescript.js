@@ -4,7 +4,6 @@ var path = require('path');
 
 module.exports = {
   extends: [
-    path.join(__dirname, './rules/react'),
-    path.join(__dirname, './rules/react-a11y')
+    path.join(__dirname, './rules/typescript')
   ].map(require.resolve)
 };

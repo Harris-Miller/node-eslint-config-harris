@@ -19,6 +19,8 @@
     "config",
     "javascript",
     "styleguide",
+    "typescript",
+    "tslint",
     "harris"
   ],
   "author": "Harris Miller <harrismillerconsulting@gmail.com>",

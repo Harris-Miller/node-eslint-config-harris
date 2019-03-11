@@ -9,100 +9,49 @@ Environment and parser options are only set where noted, please remember set you
 
 ## Recommended Configs
 
-### eslint-config-harris/web-recommended
+### eslint-config-harris/web
 
-This export bundles the default, and es6 features together with web globals. Intended for Babel projects to be compiled down to es5 for web
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris/web-recommended" to your .eslintrc`
-
-### eslint-config-harris/node-recommended
-
-This export bundles the default, node, and es6 features together. Recommended for node 6+ applications, where you're not Babel
+This export bundles the default, and es6 features together with web globals. Intended for Babel projects to be compiled down to es5 for web. This includes react and import statements.
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris/node-recommended" to your .eslintrc`
-
-### eslint-config-harris/react-recommended
-
-This export bundles all the individual configs and is designed for babel-transpiled React applications
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris/react-recommended" to your .eslintrc`
-
-## Individual Configs
-
-### eslint-config-harris
-
-The default export contains all ESLint rules for ES5.
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": "eslint-config-harris" to your .eslintrc`
-
-### eslint-config-harris/browser
-
-Adds Browser support and environmental variables
-This config will add all browser globals, e.g. `window`, `document`, etc., as well as `jQuery` and `$`
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/browser"]` to your .eslintrc`
-
-### eslint-config-harris/es6
-
-Lints ES6. Recommended to always be used in conjunction with the default. Includes experimental Babel features
-This config will add `es6` to eslint's environments option, and the ecmaVersion to `6` under parserOptions
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/es6"]` to your .eslintrc`
+2. add `"extends": "eslint-config-harris/web" to your .eslintrc`
 
 ### eslint-config-harris/node
 
-Adds Node support and rules for Node specific javascript
-This config will add `node` to eslint's environments option
+This export bundles the default, node, and es6 features together. This does not include es6 imports. If you are using babel on your BE, add the import config below.
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/node"]` to your .eslintrc`
+2. add `"extends": "eslint-config-harris/node" to your .eslintrc`
 
 ### eslint-config-harris/import
 
-Adds support for es6 modules (import, export). Purposely seperate from es6 because current versions of Node support almost all es6 features except modules
+Adds support for es6 modules (import, export). Purposely seperate from es6 because current versions of Node support almost all es6 features except modules.
+(Note: this will only work if web or node is also included in your eslintrc extends)
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/import"]` to your .eslintrc`
-
-### eslint-config-harris/react
-
-Adds support for React and JSX syntax. It does NOT defaultly add es6 features however, that needs to be added separately
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/react"]` to your .eslintrc`
-
-### eslint-config-harris/react-a11y
-
-Adds support for linting a11y rules on JSX elements
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends: "["eslint-config-harris", "eslint-config-harris/react-a11y"]`
+2. add `"extends": ["eslint-config-harris/node", "eslint-config-harris/import"]` to your .eslintrc`
 
 ### eslint-config-harris/filenames
 
-Adds support for linting the filenames and the name of the variables exported by the file
+Adds support for linting the filenames and the name of the variables exported by the file.
+(Note: this will only work if web or node is also included in your eslintrc extends)
 
 1. `npm install --save-dev eslint-config-harris`
-2. add `"extends: "["eslint-config-harris", "eslint-config-harris/filenames"]`
+2. add `"extends: "["eslint-config-harris/node", "eslint-config-harris/filenames"]`
+
+### eslint-config-harris/typescript
+
+Adds support for linting typescript files. ts and tsx files are supported.
+(Note: this will only work if web or node is also included in your eslintrc extends)
+
+1. `npm install --save-dev eslint-config-harris`
+2. add `"extends": ["eslint-config-harris/node", "eslint-config-harris/typescript"]` to your .eslintrc`
 
 ## no-console
 
 Allowing or denying no-console is debated fiercly. With the exception of specific circumstances, I don't think console.logs should be used in the final code of any web app. For a node app however, it completely depends on what you're building. Obviously, you might want to console.log for, well, logging purpposes for say a web server to watch while developing. And you'd obviously want to use it if you're writing a CLI program. For this set of lint rules, I've choosen the lowest comment denominator and am keeping no-console as a 'warning'. I think it's best to override it for use on a case-by-case basis and will leave it up to the user to decide. By default however, no-console is turned off in the test-modifications rule set, as described below.
 
 ## Using with test frameworks
-
-### eslint-config-harris/test-modifications
-
-Modifies certain rules (more specifically, turns off certain rules) that make sense in a testing environment versus your source code. This config file does not include environments for any specific test framework, that is left upto the individual user
-
-1. `npm install --save-dev eslint-config-harrs`
-2. add `"extends": ["eslint-config-harris", "eslint-config-harris/test-modifications"] to your .eslintrc in your test folder`
 
 For your specific test framwork, in your test/.eslintrc file add
 ```

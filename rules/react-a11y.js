@@ -77,15 +77,6 @@ module.exports = {
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/interactive-supports-focus.md
     'jsx-a11y/interactive-supports-focus': 'error',
 
-    // Enforce that a label tag has a text label and an associated control
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
-    'jsx-a11y/label-has-associated-control': ['error', {
-      labelComponents: [],
-      labelAttributes: [],
-      controlComponents: [],
-      depth: 3
-    }],
-
     // require HTML element's lang prop to be valid
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
     'jsx-a11y/lang': 'error',

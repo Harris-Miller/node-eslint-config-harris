@@ -212,7 +212,7 @@ module.exports = {
         'everything-else',
         'rendering'
       ],
-      groups: { lifecycle: [Array], rendering: [Array] }
+      groups: { lifecycle: [], rendering: [] }
     }],
 
     // Prevent missing parentheses around multilines JSX

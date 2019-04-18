@@ -42,7 +42,21 @@ module.exports = {
     'comma-spacing': ['error', { before: false, after: true }],
 
     // enforce one true comma style
-    'comma-style': ['error', 'last'],
+    'comma-style': ['error', 'last', {
+      exceptions: {
+        ArrayExpression: false,
+        ArrayPattern: false,
+        ArrowFunctionExpression: false,
+        CallExpression: false,
+        FunctionDeclaration: false,
+        FunctionExpression: false,
+        ImportDeclaration: false,
+        ObjectExpression: false,
+        ObjectPattern: false,
+        VariableDeclaration: false,
+        NewExpression: false
+      }
+    }],
 
     // disallow padding inside computed properties
     'computed-property-spacing': ['error', 'never'],
@@ -70,7 +84,7 @@ module.exports = {
     'func-style': ['off', 'expression'],
 
     // enforce consistent line breaks inside function parentheses
-    'function-paren-newline': ['error', 'multiline'],
+    'function-paren-newline': ['error', 'consistent'],
 
     // Blacklist certain identifiers to prevent them being used
     'id-blacklist': 'off',
@@ -87,23 +101,29 @@ module.exports = {
       SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
-      MemberExpression: 1,
-      FunctionDeclaration: {
-        parameters: 1,
-        body: 1
-      },
-      FunctionExpression: {
-        parameters: 1,
-        body: 1
-      },
-      CallExpression: {
-        arguments: 1
-      },
+      FunctionDeclaration: { parameters: 1, body: 1 },
+      FunctionExpression: { parameters: 1, body: 1 },
+      CallExpression: { arguments: 1 },
       ArrayExpression: 1,
       ObjectExpression: 1,
       ImportDeclaration: 1,
       flatTernaryExpressions: false,
-      ignoredNodes: ['JSXElement', 'JSXElement *']
+      ignoredNodes: [
+        'JSXElement',
+        'JSXElement > *',
+        'JSXAttribute',
+        'JSXIdentifier',
+        'JSXNamespacedName',
+        'JSXMemberExpression',
+        'JSXSpreadAttribute',
+        'JSXExpressionContainer',
+        'JSXOpeningElement',
+        'JSXClosingElement',
+        'JSXText',
+        'JSXEmptyExpression',
+        'JSXSpreadChild'
+      ],
+      ignoreComments: false
     }],
 
     // enforce the consistent use of either double or single quotes in JSX attributes
@@ -137,7 +157,7 @@ module.exports = {
     'lines-around-comment': 'off',
 
     // require or disallow an empty line between class members
-    'lines-between-class-members': ['error', 'always'],
+    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: false }],
 
     // specify the maximum depth that blocks can be nested
     'max-depth': ['warn', 4],
@@ -220,7 +240,7 @@ module.exports = {
     'no-multi-assign': ['error'],
 
     // disallow multiple empty lines and only one newline at the end
-    'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
+    'no-multiple-empty-lines': ['error', { max: 2, maxEOF: 0 }],
 
     // disallow negated conditions
     'no-negated-condition': 'off',
@@ -270,8 +290,8 @@ module.exports = {
     // disallow dangling underscores in identifiers
     'no-underscore-dangle': ['error', {
       allow: [],
-      allowAfterThis: true,
-      allowAfterSuper: true,
+      allowAfterThis: false,
+      allowAfterSuper: false,
       enforceInMethodNames: false
     }],
 
@@ -288,10 +308,10 @@ module.exports = {
 
     // enforce line breaks between braces
     'object-curly-newline': ['error', {
-      ObjectExpression: { multiline: true, consistent: true },
-      ObjectPattern: { multiline: true, consistent: true },
-      ImportDeclaration: { multiline: true, consistent: true },
-      ExportDeclaration: { multiline: true, consistent: true }
+      ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
+      ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
+      ImportDeclaration: { minProperties: 4, multiline: true, consistent: true },
+      ExportDeclaration: { minProperties: 4, multiline: true, consistent: true }
     }],
 
     // require padding inside curly braces
@@ -300,7 +320,8 @@ module.exports = {
 
     // enforce "same line" or "multiple line" on object properties.
     'object-property-newline': ['error', {
-      allowMultiplePropertiesPerLine: true
+      allowAllPropertiesOnSameLine: true,
+      allowMultiplePropertiesPerLine: false
     }],
 
     // allow just one var statement per function

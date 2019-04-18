@@ -11,9 +11,7 @@ module.exports = {
     }],
 
     // require parens in arrow function arguments
-    'arrow-parens': ['error', 'as-needed', {
-      requireForBlockBody: false
-    }],
+    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: false }],
 
     // require space before/after arrow function's arrow
     'arrow-spacing': ['error', { before: true, after: true }],
@@ -82,14 +80,8 @@ module.exports = {
     // Prefer destructuring from arrays and objects
     // http://eslint.org/docs/rules/prefer-destructuring
     'prefer-destructuring': ['error', {
-      VariableDeclarator: {
-        array: false,
-        object: true
-      },
-      AssignmentExpression: {
-        array: false,
-        object: true
-      }
+      VariableDeclarator: { array: false, object: true },
+      AssignmentExpression: { array: true, object: true }
     }, {
       enforceForRenamedProperties: false
     }],

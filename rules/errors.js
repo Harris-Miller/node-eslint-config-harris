@@ -25,13 +25,13 @@ module.exports = {
     'no-console': 'warn',
 
     // disallow use of constant expressions in conditions
-    'no-constant-condition': 'error',
+    'no-constant-condition': 'warn',
 
     // disallow control characters in regular expressions
     'no-control-regex': 'error',
 
     // disallow use of debugger
-    'no-debugger': 'warn',
+    'no-debugger': 'error',
 
     // disallow duplicate arguments in functions
     'no-dupe-args': 'error',
@@ -103,7 +103,7 @@ module.exports = {
     'no-unreachable': 'error',
 
     // disallow control flow statements in finally blocks
-    'no-unsafe-finally': 'warn',
+    'no-unsafe-finally': 'error',
 
     // disallow negating the left operand of relational operators
     'no-unsafe-negation': 'error',

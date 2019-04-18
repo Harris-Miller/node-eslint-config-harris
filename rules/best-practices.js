@@ -6,7 +6,7 @@ module.exports = {
     'accessor-pairs': 'error',
 
     // enforces return statements in callbacks of array's methods
-    'array-callback-return': 'error',
+    'array-callback-return': ['error', { allowImplicit: true }],
 
     // treat var statements as if they were block scoped
     'block-scoped-var': 'error',
@@ -26,7 +26,7 @@ module.exports = {
     curly: ['error', 'all'],
 
     // require default case in switch statements
-    'default-case': 'error',
+    'default-case': ['error', { commentPattern: '^no default$' }],
 
     // enforces consistent newlines before or after dots
     'dot-location': ['error', 'property'],
@@ -35,13 +35,13 @@ module.exports = {
     'dot-notation': ['error', { allowKeywords: true }], // F'error' mixes this too much to have on
 
     // require the use of === and !==
-    eqeqeq: 'error',
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
 
     // make sure for-in loops have an if statement
     'guard-for-in': 'error',
 
     // Blacklist certain identifiers to prevent them being used
-    'no-alert': 'error',
+    'no-alert': 'warn',
 
     // disallow use of arguments.caller or arguments.callee
     'no-caller': 'error',
@@ -53,10 +53,10 @@ module.exports = {
     'no-div-regex': 'off',
 
     // disallow else after a return in an if
-    'no-else-return': 'error',
+    'no-else-return': ['error', { allowElseIf: false }],
 
     // disallow use of empty functions
-    'no-empty-function': ['warn', {
+    'no-empty-function': ['error', {
       allow: [
         'arrowFunctions',
         'functions',
@@ -150,7 +150,20 @@ module.exports = {
 
     // disallow reassignment of function parameters
     // function params should generally be treated as immutable. however, may frameworks expect you to change props on params (thing req and res for express)
-    'no-param-reassign': ['error', { props: false }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: [
+        'acc',
+        'accumulator',
+        'e',
+        'ctx',
+        'req',
+        'request',
+        'res',
+        'response',
+        '$scope'
+      ]
+    }],
 
     // disallow usage of __proto__ property
     'no-proto': 'error',
@@ -201,7 +214,7 @@ module.exports = {
     }],
 
     // allow use of assignment in return statement
-    'no-return-assign': 'error',
+    'no-return-assign': ['error', 'always'],
 
     // disallow redundant `return await`
     'no-return-await': 'error',
@@ -210,7 +223,7 @@ module.exports = {
     'no-script-url': 'error',
 
     // disallow assignments where both sides are exactly the same
-    'no-self-assign': 'error',
+    'no-self-assign': ['error', { props: false }],
 
     // disallow comparisons where both sides are exactly the same
     'no-self-compare': 'error',

@@ -27,8 +27,8 @@ module.exports = {
     // ensure <a> tags are valid
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/0745af376cdc8686d85a361ce36952b1fb1ccf6e/docs/rules/anchor-is-valid.md
     'jsx-a11y/anchor-is-valid': ['error', {
-      components: [],
-      specialLink: [],
+      components: ['Link'],
+      specialLink: ['to'],
       aspects: ['noHref', 'invalidHref', 'preferButton']
     }],
 
@@ -46,7 +46,7 @@ module.exports = {
 
     // Require ARIA roles to be valid and non-abstract
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
-    'jsx-a11y/aria-role': ['error', { ignoreNonDom: true }],
+    'jsx-a11y/aria-role': ['error', { ignoreNonDom: false, ignoreNonDOM: false }],
 
     // Enforce that elements that do not support ARIA roles, states, and
     // properties do not have those attributes.
@@ -59,7 +59,7 @@ module.exports = {
 
     // ensure <hX> tags have content and are not aria-hidden
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md
-    'jsx-a11y/heading-has-content': ['error', { components: [] }],
+    'jsx-a11y/heading-has-content': ['error', { components: [''] }],
 
     // require HTML elements to have a 'lang' prop
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/html-has-lang.md

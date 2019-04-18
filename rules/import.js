@@ -27,7 +27,7 @@ module.exports = {
   rules: {
     // require effective use of strict mode directives
     // es6 source type is 'module' and does not need 'use strict'
-    strict: ['error', 'global'],
+    strict: ['error', 'never'],
 
     // Statis analysis:
 
@@ -73,10 +73,13 @@ module.exports = {
         'tests/**', // also common npm pattern
         'spec/**', // mocha, rspec-like pattern
         '**/__tests__/**', // jest pattern
+        '**/__mocks__/**', // jest pattern
         'test.{js,jsx}', // repos with a single test file
         'test-*.{js,jsx}', // repos with multiple top-level test files
-        '**/*.{test,spec}.{js,jsx}', // tests where the extension denotes that it is a test
+        '**/*{.,_}{test,spec}.{js,jsx}', // tests where the extension or filename suffix denotes that it is a test
         '**/jest.config.js', // jest config
+        '**/jest.setup.js', // jest setup
+        '**/vue.config.js', // vue-cli config
         '**/webpack.config.js', // webpack config
         '**/webpack.config.*.js', // webpack config
         '**/rollup.config.js', // rollup config
@@ -131,8 +134,9 @@ module.exports = {
 
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    'import/extensions': ['error', 'always', {
+    'import/extensions': ['error', 'ignorePackages', {
       js: 'never',
+      mjs: 'never',
       jsx: 'never'
     }],
 

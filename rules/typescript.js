@@ -137,11 +137,16 @@ module.exports = {
 
     // Disallow unused variables (no-unused-variable from TSLint)
     'no-unsed-vars': 'off', // TURN OFF BASE RULE, new rules are same as base
-    '@typescript-eslint/no-unused-vars': ['warn', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
+    '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
 
     // Disallow the use of variables before they are defined
     'no-use-before-define': 'off', // TURN OFF BASE RULE, new rule is same as base, with added typedefs
-    '@typescript-eslint/no-use-before-define': ['error', { functions: true, classes: true, variables: true, typedefs: true }],
+    '@typescript-eslint/no-use-before-define': ['error', {
+      functions: true,
+      classes: true,
+      variables: true,
+      typedefs: true
+    }],
 
     // Disallow unnecessary constructors
     'no-useless-constructor': 'off',

@@ -33,7 +33,7 @@ module.exports = {
 
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'] }],
+    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'], checkContextTypes: true, checkChildContextTypes: true }],
 
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
@@ -75,7 +75,9 @@ module.exports = {
     'react/jsx-no-bind': ['error', {
       ignoreRefs: true,
       allowArrowFunctions: true,
-      allowBind: false
+      allowFunctions: false,
+      allowBind: false,
+      ignoreDOMComponents: true
     }],
 
     // Prevent duplicate props in JSX
@@ -181,18 +183,7 @@ module.exports = {
 
     // Prevent missing props validation in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    'react/prop-types': ['error', {
-      ignore: [
-        'className', // react
-        'children',
-        'dispatch', // react-redux
-        'match', // react-router
-        'location',
-        'history'
-      ],
-      customValidators: [],
-      skipUndeclared: false
-    }],
+    'react/prop-types': ['error', { ignore: [], customValidators: [], skipUndeclared: false }],
 
     // Prevent missing React when using JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
@@ -211,24 +202,29 @@ module.exports = {
     'react/sort-comp': ['error', {
       order: [
         'static-methods',
+        'instance-variables',
+        'lifecycle',
+        '/^on.+$/',
         'getters',
         'setters',
-        'lifecycle',
         '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
-        '/^on.+$/',
+        'instance-methods',
         'everything-else',
-        '/^render.+$/',
-        'render'
-      ]
+        'rendering'
+      ],
+      groups: { lifecycle: [Array], rendering: [Array] }
     }],
 
     // Prevent missing parentheses around multilines JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-wrap-multilines.md
     'react/jsx-wrap-multilines': ['error', {
-      declaration: true,
-      assignment: true,
-      return: true,
-      arrow: true
+      declaration: 'parens-new-line',
+      assignment: 'parens-new-line',
+      return: 'parens-new-line',
+      arrow: 'parens-new-line',
+      condition: 'parens-new-line',
+      logical: 'parens-new-line',
+      prop: 'parens-new-line'
     }],
 
     // Require that the first prop in a JSX element be on a new line when the element is multiline
@@ -245,7 +241,7 @@ module.exports = {
 
     // Disallow target="_blank" on links
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
-    'react/jsx-no-target-blank': 'error',
+    'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
 
     // only .jsx files may have JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
@@ -304,7 +300,8 @@ module.exports = {
     'react/jsx-tag-spacing': ['error', {
       closingSlash: 'never',
       beforeSelfClosing: 'always',
-      afterOpening: 'never'
+      afterOpening: 'never',
+      beforeClosing: 'never'
     }],
 
     // Enforce spaces before the closing bracket of self-closing JSX elements
@@ -318,7 +315,7 @@ module.exports = {
 
     // Enforce a defaultProps definition for every prop that is not a required prop
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-default-props.md
-    'react/require-default-props': 'error',
+    'react/require-default-props': ['error', { forbidDefaultForRequired: true }],
 
     // Forbids using non-exported propTypes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md

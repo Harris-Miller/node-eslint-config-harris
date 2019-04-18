@@ -212,7 +212,33 @@ module.exports = {
         'everything-else',
         'rendering'
       ],
-      groups: { lifecycle: [], rendering: [] }
+      groups: {
+        lifecycle: [
+          'displayName',
+          'propTypes',
+          'contextTypes',
+          'childContextTypes',
+          'mixins',
+          'statics',
+          'defaultProps',
+          'constructor',
+          'getDefaultProps',
+          'getInitialState',
+          'state',
+          'getChildContext',
+          'componentWillMount',
+          'componentDidMount',
+          'componentWillReceiveProps',
+          'shouldComponentUpdate',
+          'componentWillUpdate',
+          'componentDidUpdate',
+          'componentWillUnmount'
+        ],
+        rendering: [
+          '/^render.+$/',
+          'render'
+        ]
+      }
     }],
 
     // Prevent missing parentheses around multilines JSX

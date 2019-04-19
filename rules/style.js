@@ -158,7 +158,8 @@ module.exports = {
     }],
 
     // linebreak-style
-    'linebreak-style': ['error', 'unix'],
+    // git takes care of conversions, so I'm keeping it off
+    'linebreak-style': ['off'],
 
     // enforces empty lines around comments
     'lines-around-comment': 'off',

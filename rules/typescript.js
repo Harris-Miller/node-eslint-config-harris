@@ -8,7 +8,7 @@ module.exports = {
     }
   },
   plugins: [
-    '@typescript-eslint/'
+    '@typescript-eslint/eslint-plugin'
   ],
   rules: {
     // Require that member overloads be consecutive (adjacent-overload-signatures from TSLint)
@@ -136,7 +136,7 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
     // Disallow unused variables (no-unused-variable from TSLint)
-    'no-unsed-vars': 'off', // TURN OFF BASE RULE, new rules are same as base
+    'no-unused-vars': 'off', // TURN OFF BASE RULE, new rules are same as base
     '@typescript-eslint/no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: true }],
 
     // Disallow the use of variables before they are defined
@@ -166,7 +166,7 @@ module.exports = {
 
     // Requires any function or method that returns a Promise to be marked async. (promise-function-async from TSLint)
     // warning for now, need to look more into this one
-    '@typescript-eslint/promise-function-async': 'warning',
+    '@typescript-eslint/promise-function-async': 'warn',
 
     // When adding two variables, operands must both be of type number or of type string. (restrict-plus-operands from TSLint)
     '@typescript-eslint/restrict-plus-operands': 'error',

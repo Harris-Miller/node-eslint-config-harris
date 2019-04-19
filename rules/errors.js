@@ -85,7 +85,7 @@ module.exports = {
     'no-obj-calls': 'error',
 
     // disallow use of Object.prototypes builtins directly
-    'no-prototype-builtins': 'error',
+    'no-prototype-builtins': 'off',
 
     // disallow multiple spaces in a regular expression literal
     'no-regex-spaces': 'error',

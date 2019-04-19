@@ -31,14 +31,6 @@ Adds support for es6 modules (import, export). Purposely seperate from es6 becau
 1. `npm install --save-dev eslint-config-harris`
 2. add `"extends": ["eslint-config-harris/node", "eslint-config-harris/import"]` to your .eslintrc`
 
-### eslint-config-harris/filenames
-
-Adds support for linting the filenames and the name of the variables exported by the file.
-(Note: this will only work if web or node is also included in your eslintrc extends)
-
-1. `npm install --save-dev eslint-config-harris`
-2. add `"extends: "["eslint-config-harris/node", "eslint-config-harris/filenames"]`
-
 ### eslint-config-harris/typescript
 
 Adds support for linting typescript files. ts and tsx files are supported.
@@ -63,4 +55,4 @@ For your specific test framwork, in your test/.eslintrc file add
 ```
 This will turn on mocha global variables (`describe`, `it`, etc..). ESLint also has an `env` setting for jasmine, qunit, and a few others. See their website for more in. You'll probably need to add some globals as well.
 
-Specifically for Chai, if you are using their should/expect API, you would typically write an assertion like so: `expect(foo).to.be.true`. Doing so will get you the ESLint error `no-unsed-expressions`. You will be tempted to turn this rule off, I suggest you don't. Instead, look into using [dirty-chai](https://github.com/prodatakey/dirty-chai). It's an npm that allows you to write the same assertion as `expect(foo).to.be.true()`. The reason being, that it is easy to get a false positive assertion if you mis-spell the final key, eg `expect(foo).to.be.tue`. `.tue` would just be undefined, and thus regardless if `foo` is true or not, nothing would happen. By evaluating it via `()` you will catch this up front. This is literally why the rule `no-unsed-expressions` exists, and why it should stay active in your test files
+Specifically for Chai, if you are using their should/expect API, you would typically write an assertion like so: `expect(foo).to.be.true`. Doing so will get you the ESLint error `no-unsed-expressions`. You will be tempted to turn this rule off, I suggest you don't. Instead, look into using [dirty-chai](https://github.com/prodatakey/dirty-chai). It's a chai plugin that allows you to write the same assertion as `expect(foo).to.be.true()`. The reason being, that it is easy to get a false positive assertion if you mis-spell the final key, eg `expect(foo).to.be.tue`. `.tue` would just be undefined, and thus regardless if `foo` is true or not, nothing would happen. By evaluating it via `()` you will catch this up front. This is literally why the rule `no-unsed-expressions` exists, and why it should stay active in your test files

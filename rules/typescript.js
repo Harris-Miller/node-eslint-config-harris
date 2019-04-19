@@ -91,7 +91,7 @@ module.exports = {
 
     // Disallow usage of the any type (no-any from TSLint)
     // in a perfect world, yes, but this is still javascript, ain't gonna happen
-    '@typescript-eslint/no-explicit-any': 'any',
+    '@typescript-eslint/no-explicit-any': 'warn',
 
     // Forbids the use of classes as namespaces (no-unnecessary-class from TSLint)
     '@typescript-eslint/no-extraneous-class': 'error',

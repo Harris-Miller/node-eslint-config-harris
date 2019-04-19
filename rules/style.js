@@ -19,7 +19,7 @@ module.exports = {
 
     // require camel case names
     camelcase: 'off',
-    'babel/camelcase': 'error',
+    'babel/camelcase': ['error', { properties: 'never', ignoreDestructuring: true }],
 
     // enforce or disallow capitalization of the first letter of a comment
     'capitalized-comments': ['off', 'never', {
@@ -78,7 +78,7 @@ module.exports = {
     }],
 
     // require function expressions to have a name
-    'func-names': 'off',
+    'func-names': 'warn',
 
     // enforces use of function declarations or expressions
     'func-style': ['off', 'expression'],
@@ -95,6 +95,8 @@ module.exports = {
 
     // require identifiers to match the provided regular expression
     'id-match': 'off',
+
+    'implicit-arrow-linebreak': ['error', 'beside'],
 
     // this option sets a specific tab width for your code
     indent: ['error', 2, {
@@ -143,6 +145,11 @@ module.exports = {
       }
     }],
 
+    'lines-around-directive': ['error', {
+      before: 'always',
+      after: 'always'
+    }],
+
     // enforce position of line comments
     'line-comment-position': ['off', {
       position: 'above',
@@ -150,8 +157,8 @@ module.exports = {
       applyDefaultIgnorePatterns: true
     }],
 
-    // linebreak-style off, as git w/ autocrlf with auto correct this for us always
-    'linebreak-style': ['off'],
+    // linebreak-style
+    'linebreak-style': ['error', 'unix'],
 
     // enforces empty lines around comments
     'lines-around-comment': 'off',
@@ -188,28 +195,33 @@ module.exports = {
 
     // require a capital letter for constructors
     'new-cap': 'off',
-    'babel/new-cap': ['error', { newIsCap: true }],
+    'babel/new-cap': ['error', {
+      newIsCap: true,
+      newIsCapExceptions: [],
+      capIsNew: false,
+      capIsNewExceptions: []
+    }],
 
     // disallow the omission of parentheses when invoking a constructor with no arguments
     'new-parens': 'error',
 
     // enforce newline after each call when chaining the calls
-    'newline-per-chained-call': ['off', { ignoreChainWithDepth: 3 }],
+    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 4 }],
 
     // disallow use of the Array constructor
     'no-array-constructor': 'error',
 
     // disallow use of bitwise operators
-    'no-bitwise': 'off',
+    'no-bitwise': 'error',
 
     // disallow use of the continue statement
-    'no-continue': 'off',
+    'no-continue': 'error',
 
     // disallow comments inline after code
     'no-inline-comments': 'off',
 
     // disallow if as the only statement in an else block
-    'no-lonely-if': 'off',
+    'no-lonely-if': 'error',
 
     'no-mixed-operators': ['error', {
       // the list of arthmetic groups disallows mixing `%` and `**`
@@ -246,7 +258,7 @@ module.exports = {
     'no-negated-condition': 'off',
 
     // disallow nested ternary expressions
-    'no-nested-ternary': 'off',
+    'no-nested-ternary': 'error',
 
     // disallow use of the Object constructor
     'no-new-object': 'error',
@@ -274,6 +286,8 @@ module.exports = {
         message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
       }
     ],
+
+    'no-spaced-func': 'error',
 
     // disallow all tabs
     'no-tabs': 'error',
@@ -303,8 +317,7 @@ module.exports = {
     'no-whitespace-before-property': 'error',
 
     // enforce the location of single-line statements
-    // this rule is mute because we have `curly: 'all'`, so just have it off
-    'nonblock-statement-body-position': 'off',
+    'nonblock-statement-body-position': ['error', 'beside', { overrides: {} }],
 
     // enforce line breaks between braces
     'object-curly-newline': ['error', {
@@ -334,7 +347,7 @@ module.exports = {
     'operator-assignment': ['error', 'always'],
 
     // enforce operators to be placed before or after line breaks
-    'operator-linebreak': 'off',
+    'operator-linebreak': ['error', 'before', { overrides: { '=': 'none' } }],
 
     // disallow padding within blocks
     'padded-blocks': ['error', { blocks: 'never', classes: 'never', switches: 'never' }],

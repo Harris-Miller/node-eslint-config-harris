@@ -301,6 +301,11 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
+confusing-browser-globals@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.6.tgz#5918188e8244492cdd46d6be1cab60edef3063ce"
+  integrity sha512-GzyX86c2TvaagAOR+lHL2Yq4T4EnoBcnojZBcNbxVKSunxmGTnioXHR5Mo2ha/XnCoQw8eurvj6Ta+SwPEPkKg==
+
 contains-path@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/contains-path/-/contains-path-0.1.0.tgz#fe8cf184ff6670b6baef01a9d4861a5cbec4120a"

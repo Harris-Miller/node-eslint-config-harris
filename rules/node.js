@@ -9,7 +9,7 @@ module.exports = {
     'callback-return': 'off',
 
     // enforce require() on top-level module scope
-    'global-require': 'off',
+    'global-require': 'error',
 
     // enforces error handling in callbacks (node environment)
     // OVERRIDE: I absolutely want this on!
@@ -22,7 +22,7 @@ module.exports = {
     'no-mixed-requires': ['off', false],
 
     // disallow use of new operator with the require function
-    'no-new-require': 'off',
+    'no-new-require': 'error',
 
     // disallow string concatenation with __dirname and __filename
     'no-path-concat': 'error',

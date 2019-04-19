@@ -38,7 +38,7 @@ module.exports = {
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
-    'import/named': 'off',
+    'import/named': 'error',
 
     // ensure default import coupled with default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/default.md#when-not-to-use-it
@@ -142,15 +142,15 @@ module.exports = {
 
     // Enforce a convention in module import order
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
-    // TODO: enable?
-    'import/order': ['off', {
-      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      'newlines-between': 'never'
-    }],
+    'import/order': ['error', { groups: [['builtin', 'external', 'internal']] }],
 
     // Require a newline after the last import/require in a group
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md
     'import/newline-after-import': 'error',
+
+    // Forbid a module from importing itself
+    // https://github.com/benmosher/eslint-plugin-import/blob/44a038c06487964394b1e15b64f3bd34e5d40cde/docs/rules/no-self-import.md
+    'import/no-self-import': 'error',
 
     // DO NOT require modules with a single export to use a default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
@@ -208,6 +208,14 @@ module.exports = {
       allowAnonymousFunction: false,
       allowLiteral: false,
       allowObject: false
-    }]
+    }],
+
+    // Forbid cyclical dependencies between modules
+    // https://github.com/benmosher/eslint-plugin-import/blob/d81f48a2506182738409805f5272eff4d77c9348/docs/rules/no-cycle.md
+    'import/no-cycle': ['error', { maxDepth: Infinity }],
+
+    // Ensures that there are no useless path segments
+    // https://github.com/benmosher/eslint-plugin-import/blob/ebafcbf59ec9f653b2ac2a0156ca3bcba0a7cf57/docs/rules/no-useless-path-segments.md
+    'import/no-useless-path-segments': 'error'
   }
 };

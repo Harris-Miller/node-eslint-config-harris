@@ -20,7 +20,7 @@ module.exports = {
     // require return statements to either always or never specify values
     // it's common to return an error object to stop code progression
     // even when the block doesn't return anything, this rule is just annoying
-    'consistent-return': 'off',
+    'consistent-return': 'error',
 
     // specify curly brace conventions for all control statements
     curly: ['error', 'all'],
@@ -74,7 +74,7 @@ module.exports = {
     'no-eval': 'error',
 
     // disallow adding to native types
-    'no-extend-native': 'off',
+    'no-extend-native': 'error',
 
     // disallow unnecessary function binding
     'no-extra-bind': 'error',
@@ -237,9 +237,12 @@ module.exports = {
     // disallow unmodified conditions of loops
     'no-unmodified-loop-condition': 'off',
 
+    // disallow unnecessary string escaping
+    'no-useless-escape': 'error',
+
     // disallow usage of expressions in statement position
     'no-unused-expressions': 'off',
-    'babel/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
+    'babel/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true, allowTaggedTemplates: true }],
 
     // disallow unused labels
     'no-unused-labels': 'error',
@@ -283,7 +286,7 @@ module.exports = {
     'require-unicode-regexp': 'off',
 
     // requires to declare all vars on top of their containing scope
-    'vars-on-top': 'off',
+    'vars-on-top': 'error',
 
     // require immediate function invocation to be wrapped in parentheses
     'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],

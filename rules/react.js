@@ -23,10 +23,6 @@ module.exports = {
   // View link below for react rules documentation
   // https://github.com/yannickcr/eslint-plugin-react#list-of-supported-rules
   rules: {
-    // Specify whether double or single quotes should be used in JSX attributes
-    // http://eslint.org/docs/rules/jsx-quotes
-    'jsx-quotes': ['error', 'prefer-double'],
-
     // Prevent missing displayName in a React component definition
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/display-name.md
     'react/display-name': ['off', { ignoreTranspilerName: false }],
@@ -345,7 +341,7 @@ module.exports = {
 
     // Forbids using non-exported propTypes
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-foreign-prop-types.md
-    'react/forbid-foreign-prop-types': 'off',
+    'react/forbid-foreign-prop-types': ['warn', { allowInPropTypes: true }],
 
     // Prevent void DOM elements from receiving children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
@@ -376,6 +372,34 @@ module.exports = {
 
     // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
-    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }]
+    'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
+
+    // One JSX Element Per Line
+    // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-one-expression-per-line.md
+    'react/jsx-one-expression-per-line': ['error', { allow: 'single-child' }],
+
+    // Enforce consistent usage of destructuring assignment of props, state, and context
+    // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/destructuring-assignment.md
+    'react/destructuring-assignment': ['error', 'always'],
+
+    // Prevent using this.state within a this.setState
+    // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-access-state-in-setstate.md
+    'react/no-access-state-in-setstate': 'error',
+
+    // Prevent usage of button elements without an explicit type attribute
+    // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/button-has-type.md
+    'react/button-has-type': ['error', {
+      button: true,
+      submit: true,
+      reset: false
+    }],
+
+    // Prevent this from being used in stateless functional components
+    // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-this-in-sfc.md
+    'react/no-this-in-sfc': 'error',
+
+    // Disallow multiple spaces between inline JSX props
+    // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
+    'react/jsx-props-no-multi-spaces': 'error'
   }
 };

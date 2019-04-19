@@ -1,5 +1,7 @@
 'use strict';
 
+const confusingBrowserGlobals = require('confusing-browser-globals');
+
 module.exports = {
   rules: {
     // enforce or disallow variable initializations at definition
@@ -12,7 +14,7 @@ module.exports = {
     'no-label-var': 'error',
 
     // disallow specified global variables
-    'no-restricted-globals': 'off',
+    'no-restricted-globals': ['error', 'isFinite', 'isNaN'].concat(confusingBrowserGlobals),
 
     // disallow declaration of variables already declared in the outer scope
     'no-shadow': 'error',

@@ -1,18 +1,11 @@
 'use strict';
 
 module.exports = {
-  plugins: [
-    'react'
-  ],
+  plugins: ['react', 'react-hooks'],
   settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.json']
-      }
-    },
     react: {
       pragma: 'React',
-      version: '16.0'
+      version: 'detect'
     },
     propWrapperFunctions: [
       'forbidExtraProps', // https://www.npmjs.com/package/airbnb-prop-types
@@ -29,7 +22,11 @@ module.exports = {
 
     // Forbid certain propTypes (any, array, object)
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
-    'react/forbid-prop-types': ['error', { forbid: ['any', 'array', 'object'], checkContextTypes: true, checkChildContextTypes: true }],
+    'react/forbid-prop-types': ['error', {
+      forbid: ['any', 'array', 'object'],
+      checkContextTypes: true,
+      checkChildContextTypes: true
+    }],
 
     // Enforce boolean attributes notation in JSX
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
@@ -234,10 +231,7 @@ module.exports = {
           'componentDidUpdate',
           'componentWillUnmount'
         ],
-        rendering: [
-          '/^render.+$/',
-          'render'
-        ]
+        rendering: ['/^render.+$/', 'render']
       }
     }],
 
@@ -304,8 +298,7 @@ module.exports = {
     // Prevent unused propType definitions
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unused-prop-types.md
     'react/no-unused-prop-types': ['error', {
-      customValidators: [
-      ],
+      customValidators: [],
       skipShapeProps: true
     }],
 
@@ -404,6 +397,10 @@ module.exports = {
 
     // Disallow multiple spaces between inline JSX props
     // https://github.com/yannickcr/eslint-plugin-react/blob/ac102885765be5ff37847a871f239c6703e1c7cc/docs/rules/jsx-props-no-multi-spaces.md
-    'react/jsx-props-no-multi-spaces': 'error'
+    'react/jsx-props-no-multi-spaces': 'error',
+
+    // eslint-config-react-hooks, just using the default options here
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 };

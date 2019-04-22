@@ -1,15 +1,28 @@
 'use strict';
 
+const path = require('path');
+const importRules = require('./import');
+
 module.exports = {
+  extends: [require.resolve(path.join(__dirname, './import'))],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true // there is no real reason to have this off, might as well keep on so if you are in tsx files you're safe
     }
   },
-  plugins: [
-    '@typescript-eslint/eslint-plugin'
-  ],
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx']
+    },
+    'import/resolver': {
+      node: {
+        extensions: importRules.settings['import/resolver'].node.extensions.concat(['.ts', 'tsx'])
+      }
+    },
+    'import/extensions': importRules.settings['import/extensions'].concat(['.ts', '.tsx'])
+  },
   rules: {
     // Require that member overloads be consecutive (adjacent-overload-signatures from TSLint)
     '@typescript-eslint/adjacent-overload-signatures': 'error',

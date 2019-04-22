@@ -115,7 +115,6 @@ module.exports = {
     'use-isnan': 'error',
 
     // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 'off',
-    'babel/valid-typeof': ['error', { requireStringLiterals: true }]
+    'valid-typeof': ['error', { requireStringLiterals: true }]
   }
 };

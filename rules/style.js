@@ -18,8 +18,7 @@ module.exports = {
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
     // require camel case names
-    camelcase: 'off',
-    'babel/camelcase': ['error', { properties: 'never', ignoreDestructuring: true }],
+    camelcase: ['error', { properties: 'never', ignoreDestructuring: true }],
 
     // enforce or disallow capitalization of the first letter of a comment
     'capitalized-comments': ['off', 'never', {
@@ -195,8 +194,7 @@ module.exports = {
     'multiline-ternary': ['off', 'never'],
 
     // require a capital letter for constructors
-    'new-cap': 'off',
-    'babel/new-cap': ['error', {
+    'new-cap': ['error', {
       newIsCap: true,
       newIsCapExceptions: [],
       capIsNew: false,
@@ -329,8 +327,7 @@ module.exports = {
     }],
 
     // require padding inside curly braces
-    'object-curly-spacing': 'off',
-    'babel/object-curly-spacing': ['error', 'always'],
+    'object-curly-spacing': ['error', 'always'],
 
     // enforce "same line" or "multiple line" on object properties.
     'object-property-newline': ['error', {
@@ -363,12 +360,10 @@ module.exports = {
     'quote-props': ['error', 'as-needed', { keywords: false, unnecessary: true, numbers: false }],
 
     // specify whether double or single quotes should be used
-    quotes: 'off',
-    'babel/quotes': ['error', 'single', { avoidEscape: true }],
+    quotes: ['error', 'single', { avoidEscape: true }],
 
     // require or disallow use of semicolons instead of ASI
-    semi: 'off',
-    'babel/semi': ['error', 'always'],
+    semi: ['error', 'always'],
 
     // enforce spacing before and after semicolons
     'semi-spacing': ['error', { before: false, after: true }],

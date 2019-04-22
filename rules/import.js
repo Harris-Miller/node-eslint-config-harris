@@ -10,7 +10,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.json']
+        extensions: ['.js', '.jsx', '.json']
       }
     },
     'import/extensions': [

@@ -1,5 +1,4 @@
-const typescriptEslintRecommended = require('@typescript-eslint/eslint-plugin')
-  .configs.recommended;
+const typescriptEslintRecommended = require('@typescript-eslint/eslint-plugin').configs.recommended;
 const typescriptImports = require('eslint-plugin-import').configs.typescript;
 const prettierTypescriptOverrides = require('eslint-config-prettier/@typescript-eslint');
 
@@ -7,23 +6,22 @@ module.exports = {
   extends: ['airbnb', 'prettier'],
   plugins: ['prettier', 'react-hooks'],
   rules: {
-    'operator-linebreak': [
-      'error',
-      'after',
-      { overrides: { '?': 'ignore', ':': 'ignore' } }
-    ],
+    'operator-linebreak': ['error', 'after', { overrides: { '?': 'ignore', ':': 'ignore' } }],
     'comma-dangle': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
     'object-curly-newline': ['error', { consistent: true }],
     'no-shadow': 'off',
     'linebreak-style': 'off',
     'no-mixed-spaces-and-tabs': ['error'],
-    'no-param-reassign': ["error", { 'props': false }],
-    'no-unused-vars': ['error', {
-      'vars': 'all',
-      'args': 'after-used',
-      'ignoreRestSiblings': true
-    }],
+    'no-param-reassign': ['error', { props: false }],
+    'no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: true
+      }
+    ],
     'no-prototype-builtins': 'off',
     'function-paren-newline': 'off', // conflict with prettier
     'implicit-arrow-linebreak': 'off',
@@ -45,14 +43,7 @@ module.exports = {
     'import/order': [
       'warn',
       {
-        groups: [
-          'external',
-          'builtin',
-          'internal',
-          'parent',
-          'sibling',
-          'index'
-        ],
+        groups: ['external', 'builtin', 'internal', 'parent', 'sibling', 'index'],
         'newlines-between': 'always'
       }
     ],
@@ -66,13 +57,11 @@ module.exports = {
       },
       {
         selector: 'LabeledStatement',
-        message:
-          'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.'
+        message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.'
       },
       {
         selector: 'WithStatement',
-        message:
-          '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
+        message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
       }
     ],
     'no-plusplus': 'off',
@@ -94,7 +83,7 @@ module.exports = {
         skipUndeclared: false
       }
     ],
-    'react/jsx-no-duplicate-props': ['error', { ignoreCase: false }], //disable ignore case. Material-ui uses same name with different cases like InputProps and inputProps
+    'react/jsx-no-duplicate-props': ['error', { ignoreCase: false }], // disable ignore case. Material-ui uses same name with different cases like InputProps and inputProps
     'react/sort-comp': 'off',
     'react/jsx-sort-props': [
       'error',
@@ -114,16 +103,12 @@ module.exports = {
         ignoreCase: true
       }
     ],
+    'react/static-property-placement': ['error', 'static public field'],
     'react/destructuring-assignment': 'off',
-    // Elvin reported this being problematic right now, revisit next time.
-    // 'react-hooks/rules-of-hooks': 'error',
-    // Autofix introduces unexpected behavior at the moment.
-    'react-hooks/exhaustive-deps': 'off',
-    // Revisit this unsafe rule. We'd like to warn, but it has no effect at the moment.
-    // 'react/no-unsafe': ['warn', { checkAliases: true }]
+    'react/no-unsafe': ['warn', { checkAliases: true }],
     // the below rules are being evaluated and will either be turned off or allowed through
-    "react/state-in-constructor": 'warn',
-    "no-async-promise-executor": 'warn'
+    'react/state-in-constructor': ['error', 'never'],
+    'no-async-promise-executor': 'warn'
   },
   parser: 'babel-eslint',
   parserOptions: {
@@ -153,110 +138,102 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       ...typescriptImports,
-      rules: Object.assign(
-        typescriptEslintRecommended.rules,
-        prettierTypescriptOverrides.rules,
-        {
-          'no-empty-function': 'off',
-          '@typescript-eslint/naming-convention': [
-            'error',
-            {
-              'selector': 'interface',
-              'format': ['PascalCase'],
-              'prefix': ['I']
-            },
-            {
-              'selector': 'typeParameter',
-              'format': ['PascalCase'],
-              // this allows for just `T`, which is common in generics
-              'custom': {
-                'regex': '^T([A-Z][a-z]*)*$',
-                'match': true
-              }
+      rules: Object.assign(typescriptEslintRecommended.rules, prettierTypescriptOverrides.rules, {
+        'no-empty-function': 'off',
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'interface',
+            format: ['PascalCase'],
+            prefix: ['I']
+          },
+          {
+            selector: 'typeParameter',
+            format: ['PascalCase'],
+            // this allows for just `T`, which is common in generics
+            custom: {
+              regex: '^T([A-Z][a-z]*)*$',
+              match: true
             }
-          ],
-          '@typescript-eslint/ban-types': [
-            'error',
-            {
-              types: {
-                String: {
-                  message:
-                    'Avoid using the `String` type. Did you mean `string`?',
-                  fixWith: 'string'
-                },
-                Object: {
-                  message:
-                    'Avoid using the `Object` type. Did you mean `object`?'
-                },
-                Boolean: {
-                  message:
-                    'Avoid using the `Boolean` type. Did you mean `boolean`?'
-                },
-                Number: {
-                  message:
-                    'Avoid using the `Number` type. Did you mean `number`?'
-                },
-                Symbol: {
-                  message:
-                    'Avoid using the `Symbol` type. Did you mean `symbol`?'
-                }
+          }
+        ],
+        '@typescript-eslint/ban-types': [
+          'error',
+          {
+            types: {
+              String: {
+                message: 'Avoid using the `String` type. Did you mean `string`?',
+                fixWith: 'string'
               },
-              extendDefaults: false
-            }
-          ],
-          'no-useless-constructor': 'off',
-          '@typescript-eslint/no-useless-constructor': 'error',
-          '@typescript-eslint/member-ordering': 'off',
-          '@typescript-eslint/no-explicit-any': 'off', // consider extending on a per project basis
-          '@typescript-eslint/no-extraneous-class': 'error',
-          '@typescript-eslint/no-parameter-properties': 'off',
-          '@typescript-eslint/no-require-imports': 'error',
-          '@typescript-eslint/no-this-alias': [
-            'error',
-            { allowDestructuring: true }
-          ],
-          '@typescript-eslint/ban-ts-comment': 'off',
-          '@typescript-eslint/no-type-alias': 'off',
-          'no-use-before-define': 'off',
-          '@typescript-eslint/no-use-before-define': [
-            'warn',
-            {
-              functions: false,
-              classes: true,
-              variables: true,
-              typedefs: true
-            }
-          ],
-          '@typescript-eslint/no-object-literal-type-assertion': 'off',
-          '@typescript-eslint/explicit-function-return-type': 'off',
-          '@typescript-eslint/explicit-member-accessibility': 'off',
-          '@typescript-eslint/no-unnecessary-qualifier': 'error',
-          '@typescript-eslint/prefer-for-of': 'error',
-          '@typescript-eslint/restrict-plus-operands': 'error',
-          'no-unused-vars': 'off',
-          '@typescript-eslint/no-unused-vars': ['error', {
-            'vars': 'all',
-            'args': 'after-used',
-            'ignoreRestSiblings': true
-          }],
-          // the below rules are being evaluated and will either be turned off or allowed through
-          '@typescript-eslint/no-inferrable-types': 'warn',
-          "@typescript-eslint/no-empty-function": 'warn',
-          "@typescript-eslint/no-var-requires": 'warn',
+              Object: {
+                message: 'Avoid using the `Object` type. Did you mean `object`?'
+              },
+              Boolean: {
+                message: 'Avoid using the `Boolean` type. Did you mean `boolean`?'
+              },
+              Number: {
+                message: 'Avoid using the `Number` type. Did you mean `number`?'
+              },
+              Symbol: {
+                message: 'Avoid using the `Symbol` type. Did you mean `symbol`?'
+              }
+            },
+            extendDefaults: false
+          }
+        ],
+        'no-useless-constructor': 'off',
+        '@typescript-eslint/no-useless-constructor': 'error',
+        '@typescript-eslint/member-ordering': 'off',
+        '@typescript-eslint/no-explicit-any': 'off', // consider extending on a per project basis
+        '@typescript-eslint/no-extraneous-class': 'error',
+        '@typescript-eslint/no-parameter-properties': 'off',
+        '@typescript-eslint/no-require-imports': 'error',
+        '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: true }],
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-type-alias': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-use-before-define': [
+          'warn',
+          {
+            functions: false,
+            classes: true,
+            variables: true,
+            typedefs: true
+          }
+        ],
+        '@typescript-eslint/no-object-literal-type-assertion': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-member-accessibility': 'off',
+        '@typescript-eslint/no-unnecessary-qualifier': 'error',
+        '@typescript-eslint/prefer-for-of': 'error',
+        '@typescript-eslint/restrict-plus-operands': 'error',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            vars: 'all',
+            args: 'after-used',
+            ignoreRestSiblings: true
+          }
+        ],
+        // the below rules are being evaluated and will either be turned off or allowed through
+        '@typescript-eslint/no-inferrable-types': 'warn',
+        '@typescript-eslint/no-empty-function': 'warn',
+        '@typescript-eslint/no-var-requires': 'warn',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
 
-          // due to an update with eslint-plugin-import, we need this rule now for typescript
-          'import/extensions': [
-            'error',
-            'ignorePackages',
-            {
-              js: 'never',
-              jsx: 'never',
-              ts: 'never',
-              tsx: 'never'
-            }
-          ]
-        }
-      )
+        // due to an update with eslint-plugin-import, we need this rule now for typescript
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never'
+          }
+        ]
+      })
     }
   ]
 };

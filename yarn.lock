@@ -1596,6 +1596,11 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier@^2.2.0:
+  version "2.2.0"
+  resolved "https://artifactory.alteryx.com/artifactory/api/npm/npm/prettier/-/prettier-2.2.0.tgz#8a03c7777883b29b37fb2c4348c66a78e980418b"
+  integrity sha1-igPHd3iDsps3+yxDSMZqeOmAQYs=
+
 progress@^2.0.0:
   version "2.0.3"
   resolved "https://artifactory.alteryx.com/artifactory/api/npm/npm/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
@@ -1972,6 +1977,11 @@ type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://artifactory.alteryx.com/artifactory/api/npm/npm/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
+
+typescript@^4.1.2:
+  version "4.1.2"
+  resolved "https://artifactory.alteryx.com/artifactory/api/npm/npm/typescript/-/typescript-4.1.2.tgz#6369ef22516fe5e10304aae5a5c4862db55380e9"
+  integrity sha1-Y2nvIlFv5eEDBKrlpcSGLbVTgOk=
 
 typical@^4.0.0:
   version "4.0.0"

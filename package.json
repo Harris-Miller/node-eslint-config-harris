@@ -9,8 +9,8 @@
   },
   "scripts": {
     "bump": "bump --prompt --commit --tag",
-    "bump-rc": "yarn bump --preid=rc'",
-    "bump-beta": "yarn bump --preid=beta'",
+    "bump-rc": "yarn bump --preid=rc",
+    "bump-beta": "yarn bump --preid=beta",
     "lint": "eslint .",
     "test": "eslint tests/**/*.js tests/**/*.jsx"
   },

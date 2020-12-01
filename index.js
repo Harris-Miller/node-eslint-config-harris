@@ -10,7 +10,6 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'arrow-parens': ['error', 'as-needed'],
     'object-curly-newline': ['error', { consistent: true }],
-    'no-shadow': 'off',
     'linebreak-style': 'off',
     'no-mixed-spaces-and-tabs': ['error'],
     'no-param-reassign': ['error', { props: false }],

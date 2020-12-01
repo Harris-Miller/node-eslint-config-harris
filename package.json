@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-harris",
-  "version": "2.1.0",
+  "version": "3.0.0-beta.1",
   "description": "Harris' ESLint config",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "git@github.com:Harris-Miller/node-eslint-config-harris.git"
   },
   "scripts": {
-    "bump": "bump --prompt --commit --tag",
+    "bump": "bump --commit --tag",
     "bump-rc": "yarn bump --preid=rc",
     "bump-beta": "yarn bump --preid=beta",
     "lint": "eslint .",
